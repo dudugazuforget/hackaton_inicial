@@ -8,18 +8,13 @@ const vdd = ref(true);
 
 
 function toggleSobreNos() {
-  ok.value = !ok.value; // Inverte o valor de ok ao clicar no botão
+  ok.value = !ok.value;
 
-
-  // Caso o botão seja "Voltar", chamamos a função "Voltar()" para alternar os valores novamente
   if (!ok.value) {
     Voltar();
   }
 }
-function SobreNos() {
-  ok.value = true;
-  vdd.value = false;
-}
+
 
 
 function Voltar() {
@@ -32,6 +27,7 @@ function Voltar() {
 <template>
   <div class="title">
     <h1 class="name-title">IfCoders</h1>
+
     <div>
       <button @click="toggleSobreNos" class="sobre-nos">{{ ok ? 'Voltar' : 'Sobre nós' }}</button>
       <div v-if="ok" class="sobre">
@@ -50,6 +46,55 @@ function Voltar() {
 
 
   </div>
+
+  <select class="form-select">
+    <option value="0">Selecione o Tipo de imovel</option>
+    <option value="1">Apartamento</option>
+    <option value="2">Casa</option>
+    <option value="3">Chacara</option>
+  </select>
+
+
+
+
+
+  <div class="form-floating">
+    <select class="form-select" placeholder="Selecione Seu Estado">
+      <option value="">Selecione Seu Estado</option>
+      <option value="AC">Acre</option>
+      <option value="AL">Alagoas</option>
+      <option value="AP">Amapá</option>
+      <option value="AM">Amazonas</option>
+      <option value="BA">Bahia</option>
+      <option value="CE">Ceará</option>
+      <option value="DF">Distrito Federal</option>
+      <option value="ES">Espirito Santo</option>
+      <option value="GO">Goiás</option>
+      <option value="MA">Maranhão</option>
+      <option value="MS">Mato Grosso do Sul</option>
+      <option value="MT">Mato Grosso</option>
+      <option value="MG">Minas Gerais</option>
+      <option value="PA">Pará</option>
+      <option value="PB">Paraíba</option>
+      <option value="PR">Paraná</option>
+      <option value="PE">Pernambuco</option>
+      <option value="PI">Piauí</option>
+      <option value="RJ">Rio de Janeiro</option>
+      <option value="RN">Rio Grande do Norte</option>
+      <option value="RS">Rio Grande do Sul</option>
+      <option value="RO">Rondônia</option>
+      <option value="RR">Roraima</option>
+      <option value="SC">Santa Catarina</option>
+      <option value="SP">São Paulo</option>
+      <option value="SE">Sergipe</option>
+      <option value="TO">Tocantins</option>
+    </select>
+
+  </div>
+
+  <input type="number" class="pessoas-input" placeholder="Quantidade de pessoas">
+
+
   <div class="navbar"></div>
   <div class="listagem-imoveis">
     <div v-for="imovel in imoveis" :key="imovel.id" class="card-casa">
@@ -66,6 +111,29 @@ function Voltar() {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400&display=swap%27%29%3B');
 
+.pessoas-input {
+
+  position: relative;
+  text-align: center;
+  top: -60px;
+  left: 680px;
+  width: 400px;
+  height: 70px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.295);
+  border-radius: 5px;
+}
+
+.form-select {
+  position: relative;
+  top: 120px;
+  left: 370px;
+  width: 270px;
+  height: 70px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
 
 .listagem-imoveis {
   display: flex;
