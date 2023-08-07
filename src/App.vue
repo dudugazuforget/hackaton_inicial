@@ -5,11 +5,12 @@ import { ref } from 'vue';
 
 const ok = ref(false);
 const vdd = ref(true);
+const form_invisible = ref(true)
 
 
 function toggleSobreNos() {
   ok.value = !ok.value;
-
+  form_invisible.value = false;
   if (!ok.value) {
     Voltar();
   }
@@ -20,6 +21,7 @@ function toggleSobreNos() {
 function Voltar() {
   ok.value = false;
   vdd.value = true;
+  form_invisible.value = true;
 }
 </script>
 
@@ -47,7 +49,7 @@ function Voltar() {
 
   </div>
 
-  <select class="form-select">
+  <select class="form-select" v-if="form_invisible">
     <option value="0">Selecione o Tipo de imovel</option>
     <option value="1">Apartamento</option>
     <option value="2">Casa</option>
@@ -58,7 +60,7 @@ function Voltar() {
 
 
 
-  <div class="form-floating">
+  <div class="form-floating" v-if="form_invisible">
     <select class="form-select" placeholder="Selecione Seu Estado">
       <option value="">Selecione Seu Estado</option>
       <option value="AC">Acre</option>
@@ -92,7 +94,7 @@ function Voltar() {
 
   </div>
 
-  <input type="number" class="pessoas-input" placeholder="Quantidade de pessoas">
+  <input v-if="form_invisible" type="number" class="pessoas-input" placeholder="Quantidade de pessoas">
 
 
   <div class="navbar"></div>
