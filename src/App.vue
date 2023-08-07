@@ -2,18 +2,16 @@
 import { imoveis } from '@/_data/imoveis.js';
 import { ref } from 'vue';
 
-
+const flt_qntd = ref('')
+const flt_tipo = ref('')
+const estado = ref('')
 const mostrar_sb = ref(false);
 const mostrar_ct = ref(false)
 const form_invisible = ref(true)
-const b_invisibleS = ref(true)
-const b_invisibleC = ref(true)
 
 
 function toggleSobreNos() {
   mostrar_sb.value = !mostrar_sb.value;
-  form_invisible.value = false;
-  b_invisibleC.value = false;
   if (!mostrar_sb.value) {
     Voltar();
   }
@@ -22,8 +20,6 @@ function toggleSobreNos() {
 
 function toggleContato() {
   mostrar_ct.value = !mostrar_ct.value;
-  form_invisible.value = false;
-  b_invisibleS.value = false
   if (!mostrar_ct.value) {
     Voltar();
   }
@@ -31,11 +27,7 @@ function toggleContato() {
 
 function Voltar() {
   mostrar_sb.value = false;
-  mostrar_ct.value = false
-  form_invisible.value = true;
-  b_invisibleS.value = true;
-  b_invisibleC.value = true;
-
+  mostrar_ct.value = false; 
 }
 
 </script>
@@ -46,7 +38,7 @@ function Voltar() {
     <h1 class="name-title">IfCoders</h1>
 
     <div>
-      <button @click="toggleSobreNos" class="sobre-nos" v-if="b_invisibleS">{{ mostrar_sb ? 'Voltar' : 'Sobre nós'
+      <button @click="toggleSobreNos" class="sobre-nos" >{{ mostrar_sb ? 'Voltar' : 'Sobre nós'
       }}</button>
       <div v-if="mostrar_sb" class="sobre">
         <p class="text-sobre">
@@ -60,7 +52,7 @@ function Voltar() {
       </div>
     </div>
     <div>
-      <button @click="toggleContato" class="contato" v-if="b_invisibleC">{{ mostrar_ct ? 'voltar' : 'contato' }}</button>
+      <button @click="toggleContato" class="contato" >{{ mostrar_ct ? 'voltar' : 'contato' }}</button>
       <div v-if="mostrar_ct" class="sobre">
         <p>Entre em contato conosco! Estamos aqui para ajudar. Use o numero abaixo ou nosso email de contato
           para falar conosco. Esperamos por sua mensagem! <br>
@@ -70,18 +62,18 @@ function Voltar() {
       </div>
     </div>
 
-
+    
 
   </div>
 
-  <select class="form-select" v-if="form_invisible">
+  <select class="form-select" >
     <option value="0">Selecione o Tipo de imovel</option>
     <option value="1">Apartamento</option>
     <option value="2">Casa</option>
     <option value="3">Chacara</option>
   </select>
 
-  <div class="form-floating" v-if="form_invisible">
+  <div   class="form-floating" >
     <select class="form-select" placeholder="Selecione Seu Estado">
       <option value="">Selecione Seu Estado</option>
       <option value="AC">Acre</option>
@@ -115,8 +107,11 @@ function Voltar() {
 
   </div>
 
-  <input v-if="form_invisible" type="number" class="pessoas-input" placeholder="Quantidade de pessoas">
-  <button @click="run_filter" class="b-filtrar">Filtrar</button>
+  <input  type="number" class="pessoas-input" placeholder="Quantidade de pessoas">
+  <button @click="run_filter" class="b-filtrar" >Filtrar</button>
+
+
+
 
   <div class="navbar"></div>
   <div class="listagem-imoveis">
@@ -133,6 +128,9 @@ function Voltar() {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400&display=swap%27%29%3B');
+
+
+
 
 .pessoas-input {
 
@@ -169,24 +167,13 @@ function Voltar() {
 
 .card-casa {
   margin: 0 29px;
-  margin-top: 300px;
+  margin-top: 200px;
   background-color: rgb(241, 235, 235);
   border-radius: 20px;
   width: 360px;
 
 
 }
-
-
-.anunciar {
-  position: absolute;
-  background-color: transparent;
-  color: rgb(200, 221, 200);
-  border: 0;
-  margin-top: -37px;
-  margin-left: 460px;
-}
-
 
 .contato {
   position: absolute;
@@ -213,10 +200,10 @@ function Voltar() {
 .sobre {
   position: absolute;
   padding: 20px;
-  top: 95px;
-  width: 700px;
+  top: 93px;
+  width: 400Px;
   border-bottom-right-radius: 5px;
-  height: 280px;
+  height: 700px;
   color: rgb(73, 68, 68);
   background-color: rgb(241, 235, 235);
   display: flex;
@@ -224,6 +211,7 @@ function Voltar() {
   justify-content: center;
   animation-name: ease;
   animation-duration: 0.7s;
+  z-index: 3;
 }
 
 
@@ -262,7 +250,7 @@ function Voltar() {
   to {
 
 
-    width: 700px;
+    width: 400px;
   }
 }
 
@@ -347,9 +335,9 @@ img {
 }
 
 .b-filtrar {
-  position: relative;
-  top: 30px;
-  left: 279px;
+  position: absolute;
+  top: 210px;
+  left: 680px;
   width: 270px;
   height: 70px;
   padding: 10px;
