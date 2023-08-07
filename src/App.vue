@@ -37,6 +37,7 @@ function Voltar() {
   b_invisibleC.value = true;
 
 }
+
 </script>
 
 
@@ -45,7 +46,8 @@ function Voltar() {
     <h1 class="name-title">IfCoders</h1>
 
     <div>
-      <button @click="toggleSobreNos" class="sobre-nos" v-if="b_invisibleS">{{ mostrar_sb ? 'Voltar' : 'Sobre nós' }}</button>
+      <button @click="toggleSobreNos" class="sobre-nos" v-if="b_invisibleS">{{ mostrar_sb ? 'Voltar' : 'Sobre nós'
+      }}</button>
       <div v-if="mostrar_sb" class="sobre">
         <p class="text-sobre">
           Somos a <span style="color:rgb(34, 161, 34);">IfCoders</span>, uma inovadora empresa de locação de imóveis
@@ -62,8 +64,8 @@ function Voltar() {
       <div v-if="mostrar_ct" class="sobre">
         <p>Entre em contato conosco! Estamos aqui para ajudar. Use o numero abaixo ou nosso email de contato
           para falar conosco. Esperamos por sua mensagem! <br>
-         <span style="color:rgb(34, 161, 34);">tel: (47)984975167 </span><br>
-         <span style="color:rgb(34, 161, 34);">email: ifCoders@gmail.com</span> 
+          <span style="color:rgb(34, 161, 34);">tel: (47)984975167 </span><br>
+          <span style="color:rgb(34, 161, 34);">email: ifCoders@gmail.com</span>
         </p>
       </div>
     </div>
@@ -78,10 +80,6 @@ function Voltar() {
     <option value="2">Casa</option>
     <option value="3">Chacara</option>
   </select>
-
-
-
-
 
   <div class="form-floating" v-if="form_invisible">
     <select class="form-select" placeholder="Selecione Seu Estado">
@@ -118,6 +116,7 @@ function Voltar() {
   </div>
 
   <input v-if="form_invisible" type="number" class="pessoas-input" placeholder="Quantidade de pessoas">
+  <button @click="run_filter" class="b-filtrar">Filtrar</button>
 
   <div class="navbar"></div>
   <div class="listagem-imoveis">
@@ -253,7 +252,7 @@ function Voltar() {
 
 
 @keyframes ease {
-  from{
+  from {
 
 
     width: 0px;
@@ -265,7 +264,7 @@ function Voltar() {
 
     width: 700px;
   }
-} 
+}
 
 
 .imovel-capa {
@@ -345,6 +344,20 @@ img {
   font-weight: bold;
 
 
+}
+
+.b-filtrar {
+  position: relative;
+  top: 30px;
+  left: 279px;
+  width: 270px;
+  height: 70px;
+  padding: 10px;
+  background-color: rgb(32, 133, 32);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  border: 0;
 }
 </style>
 
