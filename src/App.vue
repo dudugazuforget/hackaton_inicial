@@ -3,25 +3,39 @@ import { imoveis } from '@/_data/imoveis.js';
 import { ref } from 'vue';
 
 
-const ok = ref(false);
-const vdd = ref(true);
+const mostrar_sb = ref(false);
+const mostrar_ct = ref(false)
 const form_invisible = ref(true)
+const b_invisibleS = ref(true)
+const b_invisibleC = ref(true)
 
 
 function toggleSobreNos() {
-  ok.value = !ok.value;
+  mostrar_sb.value = !mostrar_sb.value;
   form_invisible.value = false;
-  if (!ok.value) {
+  b_invisibleC.value = false;
+  if (!mostrar_sb.value) {
     Voltar();
   }
 }
 
 
+function toggleContato() {
+  mostrar_ct.value = !mostrar_ct.value;
+  form_invisible.value = false;
+  b_invisibleS.value = false
+  if (!mostrar_ct.value) {
+    Voltar();
+  }
+}
 
 function Voltar() {
-  ok.value = false;
-  vdd.value = true;
+  mostrar_sb.value = false;
+  mostrar_ct.value = false
   form_invisible.value = true;
+  b_invisibleS.value = true;
+  b_invisibleC.value = true;
+
 }
 </script>
 
@@ -31,8 +45,8 @@ function Voltar() {
     <h1 class="name-title">IfCoders</h1>
 
     <div>
-      <button @click="toggleSobreNos" class="sobre-nos">{{ ok ? 'Voltar' : 'Sobre nós' }}</button>
-      <div v-if="ok" class="sobre">
+      <button @click="toggleSobreNos" class="sobre-nos" v-if="b_invisibleS">{{ mostrar_sb ? 'Voltar' : 'Sobre nós' }}</button>
+      <div v-if="mostrar_sb" class="sobre">
         <p class="text-sobre">
           Somos a <span style="color:rgb(34, 161, 34);">IfCoders</span>, uma inovadora empresa de locação de imóveis
           fundada por dois jovens empreendedores programadores. Unimos tecnologia e expertise no mercado imobiliário para
@@ -43,8 +57,17 @@ function Voltar() {
         </p>
       </div>
     </div>
-    <button class="contato">Contato</button>
-    <button class="anunciar">Anunciar</button>
+    <div>
+      <button @click="toggleContato" class="contato" v-if="b_invisibleC">{{ mostrar_ct ? 'voltar' : 'contato' }}</button>
+      <div v-if="mostrar_ct" class="sobre">
+        <p>Entre em contato conosco! Estamos aqui para ajudar. Use o numero abaixo ou nosso email de contato
+          para falar conosco. Esperamos por sua mensagem! <br>
+         <span style="color:rgb(34, 161, 34);">tel: (47)984975167 </span><br>
+         <span style="color:rgb(34, 161, 34);">email: ifCoders@gmail.com</span> 
+        </p>
+      </div>
+    </div>
+
 
 
   </div>
@@ -96,7 +119,6 @@ function Voltar() {
 
   <input v-if="form_invisible" type="number" class="pessoas-input" placeholder="Quantidade de pessoas">
 
-
   <div class="navbar"></div>
   <div class="listagem-imoveis">
     <div v-for="imovel in imoveis" :key="imovel.id" class="card-casa">
@@ -142,6 +164,7 @@ function Voltar() {
   flex-wrap: wrap;
   width: 100%;
   margin-left: 35px;
+  margin-top: -150px;
 }
 
 
@@ -230,7 +253,7 @@ function Voltar() {
 
 
 @keyframes ease {
-  from {
+  from{
 
 
     width: 0px;
@@ -242,9 +265,7 @@ function Voltar() {
 
     width: 700px;
   }
-}
-
-
+} 
 
 
 .imovel-capa {
