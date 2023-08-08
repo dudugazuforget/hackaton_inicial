@@ -27,7 +27,12 @@ function toggleContato() {
 
 function Voltar() {
   mostrar_sb.value = false;
-  mostrar_ct.value = false; 
+  mostrar_ct.value = false;
+}
+
+function filtrar() {
+
+  
 }
 
 </script>
@@ -38,7 +43,7 @@ function Voltar() {
     <h1 class="name-title">IfCoders</h1>
 
     <div>
-      <button @click="toggleSobreNos" class="sobre-nos" >{{ mostrar_sb ? 'Voltar' : 'Sobre nós'
+      <button @click="toggleSobreNos" class="sobre-nos">{{ mostrar_sb ? 'Voltar' : 'Sobre nós'
       }}</button>
       <div v-if="mostrar_sb" class="sobre">
         <p class="text-sobre">
@@ -52,7 +57,7 @@ function Voltar() {
       </div>
     </div>
     <div>
-      <button @click="toggleContato" class="contato" >{{ mostrar_ct ? 'voltar' : 'contato' }}</button>
+      <button @click="toggleContato" class="contato">{{ mostrar_ct ? 'voltar' : 'contato' }}</button>
       <div v-if="mostrar_ct" class="sobre">
         <p>Entre em contato conosco! Estamos aqui para ajudar. Use o numero abaixo ou nosso email de contato
           para falar conosco. Esperamos por sua mensagem! <br>
@@ -62,18 +67,18 @@ function Voltar() {
       </div>
     </div>
 
-    
+
 
   </div>
 
-  <select class="form-select" >
+  <select class="form-select">
     <option value="0">Selecione o Tipo de imovel</option>
     <option value="1">Apartamento</option>
     <option value="2">Casa</option>
     <option value="3">Chacara</option>
   </select>
 
-  <div   class="form-floating" >
+  <div class="form-floating">
     <select class="form-select" placeholder="Selecione Seu Estado">
       <option value="">Selecione Seu Estado</option>
       <option value="AC">Acre</option>
@@ -103,12 +108,13 @@ function Voltar() {
       <option value="SP">São Paulo</option>
       <option value="SE">Sergipe</option>
       <option value="TO">Tocantins</option>
+      <option value="FF">Forfra</option>
     </select>
 
   </div>
 
-  <input  type="number" class="pessoas-input" placeholder="Quantidade de pessoas">
-  <button @click="run_filter" class="b-filtrar" >Filtrar</button>
+  <input type="number" class="pessoas-input" placeholder="Preço desejado R$:">
+  <button @click="run_filter" class="b-filtrar">Filtrar</button>
 
 
 
@@ -161,13 +167,13 @@ function Voltar() {
   flex-wrap: wrap;
   width: 100%;
   margin-left: 35px;
-  margin-top: -150px;
+  margin-top: 30px;
 }
 
 
 .card-casa {
   margin: 0 29px;
-  margin-top: 200px;
+  margin-top: 100px;
   background-color: rgb(241, 235, 235);
   border-radius: 20px;
   width: 360px;
