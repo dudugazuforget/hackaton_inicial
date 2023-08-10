@@ -32,7 +32,7 @@ function Voltar() {
 
 function filtrar() {
 
-  
+
 }
 
 </script>
@@ -113,7 +113,7 @@ function filtrar() {
 
   </div>
 
-  <input type="number" class="pessoas-input" placeholder="Preço desejado R$:">
+  <input type="number" class="pessoas-input" placeholder="Quartos desejados">
   <button @click="run_filter" class="b-filtrar">Filtrar</button>
 
 
@@ -128,6 +128,9 @@ function filtrar() {
       <p class="imovel-valor">R${{ imovel.valor }}.000</p>
       <p class="imovel-local">{{ imovel.local }}</p>
     </div>
+    <footer class="fixed-baseboard">
+      <p>IfCoders</p>
+    </footer>
   </div>
 </template>
 
@@ -173,12 +176,11 @@ function filtrar() {
 
 .card-casa {
   margin: 0 29px;
-  margin-top: 100px;
+  margin-top: 90px;
+  margin-bottom: 75px;
   background-color: rgb(241, 235, 235);
   border-radius: 20px;
   width: 360px;
-
-
 }
 
 .contato {
@@ -186,8 +188,6 @@ function filtrar() {
   background-color: transparent;
   color: rgb(200, 221, 200);
   border: 0;
-
-
   margin-top: -37px;
   margin-left: 350px;
 }
@@ -280,7 +280,7 @@ function filtrar() {
 
 
 .title {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0;
   width: 100%;
@@ -291,8 +291,7 @@ function filtrar() {
   font-family: 'Poppins', sans-serif;
   color: rgb(200, 221, 200);
   font-weight: bold;
-
-
+  z-index: 3;
 }
 
 
@@ -308,8 +307,6 @@ function filtrar() {
 img {
   width: 300px;
   height: 300px;
-
-
 }
 
 
@@ -323,10 +320,11 @@ img {
   height: 25px;
   width: 95px;
   left: 250px;
-
-
-
-
+}
+.b-alugar:hover{
+  background-color: rgb(12, 65, 12);
+  transform: scale(1.1);
+  transition: all 1ms;
 }
 
 
@@ -336,8 +334,6 @@ img {
   margin-left: 7px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-
-
 }
 
 .b-filtrar {
@@ -352,6 +348,17 @@ img {
   font-family: 'Poppins', sans-serif;
   border-radius: 10px;
   border: 0;
+  
+}
+
+.fixed-baseboard {
+  width: 100%;
+  height: 70px;
+  position: fixed;
+  right: 1px;
+  background-color: rgb(15, 15, 15);
+  color: rgb(32, 133, 32);
+  bottom: 0px;
 }
 </style>
 
