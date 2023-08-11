@@ -1,4 +1,7 @@
 <script setup>
+import AlphaCCircleOutline from 'vue-material-design-icons/AlphaCCircleOutline.vue'
+import EmailOutline from 'vue-material-design-icons/EmailOutline.vue' 
+import PhoneOutline from 'vue-material-design-icons/PhoneOutline.vue'
 import { imoveis } from '@/_data/imoveis.js';
 import { ref } from 'vue';
 
@@ -57,12 +60,12 @@ function filtrar() {
       </div>
     </div>
     <div>
-      <button @click="toggleContato" class="contato">{{ mostrar_ct ? 'voltar' : 'contato' }}</button>
+      <button @click="toggleContato" class="contato">{{ mostrar_ct ? 'voltar' : 'Contato' }}</button>
       <div v-if="mostrar_ct" class="sobre">
         <p>Entre em contato conosco! Estamos aqui para ajudar. Use o numero abaixo ou nosso email de contato
           para falar conosco. Esperamos por sua mensagem! <br>
-          <span style="color:rgb(34, 161, 34);">tel: (47)984975167 </span><br>
-          <span style="color:rgb(34, 161, 34);">email: ifCoders@gmail.com</span>
+          <span style="color:rgb(34, 161, 34);"><PhoneOutline/>: (47)984975167 </span><br>
+          <span style="color:rgb(34, 161, 34);"><EmailOutline/>: ifCoders@gmail.com</span>
         </p>
       </div>
     </div>
@@ -79,7 +82,7 @@ function filtrar() {
   </select>
 
   <div class="form-floating">
-    <select class="form-select" placeholder="Selecione Seu Estado">
+    <select class="form-estado" placeholder="Selecione Seu Estado">
       <option value="">Selecione Seu Estado</option>
       <option value="AC">Acre</option>
       <option value="AL">Alagoas</option>
@@ -129,7 +132,10 @@ function filtrar() {
       <p class="imovel-local">{{ imovel.local }}</p>
     </div>
     <footer class="fixed-baseboard">
-      <p>IfCoders</p>
+      <p>
+        <span style="color: black;"><AlphaCCircleOutline/></span> 
+        IfCoders 
+      </p>
     </footer>
   </div>
 </template>
@@ -142,11 +148,10 @@ function filtrar() {
 
 
 .pessoas-input {
-
   position: relative;
   text-align: center;
   top: -60px;
-  left: 680px;
+  left: 780px;
   width: 400px;
   height: 70px;
   margin-bottom: 20px;
@@ -158,25 +163,56 @@ function filtrar() {
 .form-select {
   position: relative;
   top: 120px;
-  left: 370px;
+  left: 470px;
   width: 270px;
   height: 70px;
   margin-bottom: 20px;
   padding: 10px;
+  
 }
+
+.form-estado{
+  position: relative;
+  top: 31px;
+  left: 165px;
+  width: 270px;
+  height: 70px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.295);
+  border-radius: 5px;
+}
+
+.b-filtrar {
+  position: relative;
+  top: -60px;
+  right: -820px;
+  width: 270px;
+  height: 70px;
+  padding: 10px;
+  background-color: rgb(32, 133, 32);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 10px;
+  border: 0;
+  z-index: 2;
+}
+
 
 .listagem-imoveis {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  margin: 0;
   margin-left: 35px;
-  margin-top: 30px;
+  margin-top: -80px;
 }
 
 
 .card-casa {
   margin: 0 29px;
-  margin-top: 90px;
+  margin-top: 60px;
   margin-bottom: 75px;
   background-color: rgb(241, 235, 235);
   border-radius: 20px;
@@ -336,27 +372,12 @@ img {
   font-weight: bold;
 }
 
-.b-filtrar {
-  position: absolute;
-  top: 210px;
-  left: 680px;
-  width: 270px;
-  height: 70px;
-  padding: 10px;
-  background-color: rgb(32, 133, 32);
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  border-radius: 10px;
-  border: 0;
-  
-}
 
 .fixed-baseboard {
+  position: relative;
   width: 100%;
   height: 70px;
-  position: fixed;
   right: 1px;
-  background-color: rgb(15, 15, 15);
   color: rgb(32, 133, 32);
   bottom: 0px;
 }
