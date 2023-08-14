@@ -1,13 +1,15 @@
 <script setup>
- import HomePage from './components/HomePage.vue';
-import HomeView from './views/HomeView.vue';
+import { imoveis } from '@/_data/imoveis.js';
+import { stringifyQuery } from 'vue-router';
+
+
 
 
 </script>
 
 
 <template>
-<div class="title">
+  <div class="title">
     <h1 @click="$router.push('/')" class="name-title">IfCoders</h1>
 
     <div>
@@ -29,21 +31,21 @@ import HomeView from './views/HomeView.vue';
       <div v-if="mostrar_ct" class="sobre">
         <p>Entre em contato conosco! Estamos aqui para ajudar. Use o numero abaixo ou nosso email de contato
           para falar conosco. Esperamos por sua mensagem! <br>
-          <span style="color:rgb(34, 161, 34);"><PhoneOutline/>: (47)984975167 </span><br>
-          <span style="color:rgb(34, 161, 34);"><EmailOutline/>: ifCoders@gmail.com</span>
+          <span style="color:rgb(34, 161, 34);">
+            <PhoneOutline />: (47)984975167
+          </span><br>
+          <span style="color:rgb(34, 161, 34);">
+            <EmailOutline />: ifCoders@gmail.com
+          </span>
         </p>
       </div>
     </div>
-
-<router-view/>
-
-
   </div>
+  <router-view />
 </template>
 
 
 <style scoped>
-
 .name-title {
   margin-top: 20px;
   margin-left: 20px;
