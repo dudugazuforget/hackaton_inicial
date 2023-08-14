@@ -1,9 +1,16 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import HomePage from '../components/HomePage.vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
+
+function goAbout(){
+router.push('/about')
+}
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+
+  
+    <home-page/>
+
 </template>
