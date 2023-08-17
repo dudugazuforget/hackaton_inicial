@@ -41,11 +41,14 @@ import { stringifyQuery } from 'vue-router';
       </div>
     </div>
   </div>
+  
   <router-view />
 </template>
 
 
 <style scoped>
+
+
 .name-title {
   margin-top: 20px;
   margin-left: 20px;
