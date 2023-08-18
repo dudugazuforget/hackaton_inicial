@@ -1,4 +1,41 @@
+<script setup>
+import { ref } from 'vue';
+
+const mostrar_sb = ref(false);
+const mostrar_ct = ref(false)
+
+
+function toggleSobreNos() {
+    mostrar_sb.value = !mostrar_sb.value;
+    if (!mostrar_sb.value) {
+        Voltar();
+    }
+}
+
+
+function toggleContato() {
+    mostrar_ct.value = !mostrar_ct.value;
+    if (!mostrar_ct.value) {
+        Voltar();
+    }
+}
+
+function Voltar() {
+    mostrar_sb.value = false;
+    mostrar_ct.value = false;
+}
+
+import { useRouter } from 'vue-router';
+const router = useRouter()
+function goHome() {
+    router.push('/home')
+}
+</script>
 <template>
+    <div class="title">
+        <h1 @click="goHome" class="name-titleL">IfCoders</h1>
+    </div>
+
     <div class="img">
         <img src="https://i.pinimg.com/564x/f5/47/99/f54799e42148e400a5d2b448a40a6a6e.jpg  ">
     </div>
@@ -27,18 +64,137 @@
             imóvel, a fim de garantir uma transição tranquila e agradável para o <br>
             próximo usuário. </p>
     </div>
- <input class="ckbx-term" type="checkbox" name="a" id="a">
- <label class="txt-ckbx" for="">Aceito os termos acima</label>
-    <button class="botao-alugar">Alugar</button>
+    <input class="ckbx-term" type="checkbox" name="a" id="a">
+    <label class="txt-ckbx" for="">Aceito os termos acima</label>
+    <button  class="botao-alugar" @click="">Alugar</button>
 </template>
 
 <style>
-.txt-ckbx{
+.name-titleL {
+    margin-top: 20px;
+    margin-left: 20px;
+    color: rgb(34, 161, 34);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.name-titleL:hover {
+    font-size: 45px;
+
+}
+
+
+.title {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    border: 0;
+    background-color: rgb(44, 40, 40);
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(200, 221, 200);
+    font-weight: bold;
+    z-index: 3;
+}
+
+.contato {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(200, 221, 200);
+    border: 0;
+    margin-top: -37px;
+    margin-left: 350px;
+}
+
+
+.sobre-nos {
+    position: absolute;
+    background-color: transparent;
+    color: rgb(200, 221, 200);
+    border: 0;
+    margin-top: -37px;
+    margin-left: 230px;
+}
+
+
+.sobre {
+    position: absolute;
+    padding: 20px;
+    top: 93px;
+    width: 400Px;
+    border-bottom-right-radius: 5px;
+    height: 700px;
+    color: rgb(73, 68, 68);
+    background-color: rgb(241, 235, 235);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation-name: ease;
+    animation-duration: 0.7s;
+    z-index: 3;
+}
+
+
+.text-sobre {
+    animation-name: slide;
+    animation-duration: 3s;
+}
+
+
+@keyframes slide {
+    from {
+
+
+        opacity: 0;
+    }
+
+
+    to {
+
+
+        opacity: 1;
+    }
+
+
+}
+
+
+@keyframes ease {
+    from {
+
+
+        width: 0px;
+    }
+
+
+    to {
+
+
+        width: 400px;
+    }
+}
+
+
+.imovel-capa {
+
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+
+
+}
+
+
+.txt-ckbx {
     position: absolute;
     bottom: 40%;
     right: 42%;
 }
-.ckbx-term{
+
+.ckbx-term {
     position: absolute;
     bottom: 40%;
     right: 52%;
@@ -58,14 +214,15 @@
     color: aliceblue;
     font-size: 24px;
     border-radius: 5px;
+    transition: 0.5s;
 
-    
+
 }
 
-.botao-alugar:hover{
+.botao-alugar:hover {
     background-color: #2e7a3f;
     transform: scale(1.1);
-  transition: all 1ms;
+    transition: all 0.5s;
 }
 
 .termos {
@@ -108,6 +265,7 @@
     left: 120px;
     width: 600px;
     height: 498px;
+    
 }
 
 .linha {

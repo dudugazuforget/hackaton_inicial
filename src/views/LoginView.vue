@@ -1,16 +1,16 @@
 <script setup>
-import HomePage from '../components/HomePage.vue';
+import LoginPage from '../components/LoginPage.vue';
 import { useRouter } from 'vue-router';
 const router = useRouter()
 
-function goHome(){
-router.push('/home')
+function goLogin(){
+router.push('/login')
 }
 </script>
 
 <template>
 
   
-    <home-page/>
+    <login-page/>
 
 </template>

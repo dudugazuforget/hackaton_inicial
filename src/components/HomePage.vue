@@ -361,12 +361,12 @@ img {
   height: 25px;
   width: 95px;
   left: 250px;
+  transition: .1s;
 }
 .b-alugar:hover{
   background-color: rgb(12, 65, 12);
   transform: scale(1.1);
-  transition: all 1ms;
-}
+ }
 
 
 .imovel-valor {
