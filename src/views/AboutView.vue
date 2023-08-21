@@ -30,6 +30,9 @@ const router = useRouter()
 function goHome() {
     router.push('/home')
 }
+function goAlugado() {
+    router.push('/alugado')
+}
 </script>
 <template>
     <div class="title">
@@ -66,7 +69,7 @@ function goHome() {
     </div>
     <input class="ckbx-term" type="checkbox" name="a" id="a">
     <label class="txt-ckbx" for="">Aceito os termos acima</label>
-    <button  class="botao-alugar" @click="">Alugar</button>
+    <button  class="botao-alugar" @click="goAlugado">Alugar</button>
 </template>
 
 <style>
