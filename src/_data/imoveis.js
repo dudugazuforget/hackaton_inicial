@@ -1,7 +1,7 @@
 export const imoveis = [
     {
     id: 1,
-    valor: 450.000 ,
+    valor: 5 ,
     local: 'Joinville-sc',  
     estado: 'SC',
     tipo:'casa',  
@@ -10,7 +10,7 @@ export const imoveis = [
 },
 {
     id: 2,
-    valor: 450.000 ,
+    valor: 10.000 ,
     local: 'Araquari-sc',    
     estado: 'SC',
     tipo:'casa',  
@@ -19,7 +19,7 @@ export const imoveis = [
 },
 {
     id: 3,
-    valor: 450.000 ,
+    valor: 10.000 ,
     local: 'Porto Seguro-ba', 
     estado: 'BA',
     tipo:'casa',    
@@ -28,7 +28,7 @@ export const imoveis = [
 },
 {
     id: 4,
-    valor: 450.000 ,
+    valor: 2000.0000 ,
     local: 'itajoinaquari-ff',    
     estado: 'FF',
     tipo:'casa',  
@@ -37,7 +37,7 @@ export const imoveis = [
 },
 {
     id: 5,
-    valor: 450.000 ,
+    valor: 11.300 ,
     local: 'Rio de Janeiro-rj',   
     estado: 'RJ',
     tipo:'apartamento',   
@@ -46,7 +46,7 @@ export const imoveis = [
 },
 {
     id: 6,
-    valor: 450.000 ,
+    valor: 4.900 ,
     local: 'Guaruja-sp',    
     estado: 'SP',  
     tipo:'apartamento',
@@ -55,7 +55,7 @@ export const imoveis = [
 },
 {
     id: 7,
-    valor: 450.000 ,
+    valor: 5.700 ,
     local: 'Santos-sp',   
     estado: 'SP',
     tipo: 'apartamento',
@@ -64,7 +64,7 @@ export const imoveis = [
 },
 {
     id: 8,
-    valor: 450.000 ,
+    valor: 2.500 ,
     local: 'Salvador-ba',   
     estado: 'BA', 
     tipo:'apartamento',  
@@ -73,7 +73,7 @@ export const imoveis = [
 },
 {
     id: 9,
-    valor: 450.000 ,
+    valor: 30.000 ,
     local: 'Manaus-am',   
     estado: 'AM', 
     tipo:'chacara',  
@@ -82,7 +82,7 @@ export const imoveis = [
 },
 {
     id: 10,
-    valor: 450.000 ,
+    valor: 50.000 ,
     local: 'Brasilia-df',    
     estado: 'DF', 
     tipo:'chacara', 
@@ -91,7 +91,7 @@ export const imoveis = [
 },
 {
     id: 11,
-    valor: 450.000 ,
+    valor: 40.000 ,
     local: 'Goiania-go',   
     estado: 'GO', 
     tipo:'chacara',  
@@ -100,7 +100,7 @@ export const imoveis = [
 },
 {
     id: 12,
-    valor: 450.000 ,
+    valor: 20.000 ,
     local: 'Gramado-rs',   
     estado: 'RS', 
     tipo:'chacara',  

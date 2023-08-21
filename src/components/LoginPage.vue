@@ -36,7 +36,7 @@ router.push('/home')
     <input type="email" placeholder="Email" v-model="email"> <br>
     <input type="password" name="password" placeholder="Senha" required  v-model="senha"><br>
 
-    <button type="submit" @click="goLogin">Login</button>   
+    <button  @click="goLogin">Login</button>   
     
 
     <p class="esqueceu-senha" @click="esqueceu">redefinir senha</p>

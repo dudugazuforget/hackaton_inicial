@@ -2,13 +2,15 @@
 
 </script>
 <template>
-    <h1 class="Alugado">Alugado</h1>
+    <div class="alugado">
+        Alugado com sucesso!
+    </div>
 </template>
 <style>
 .alugado{
-    display: flex;
-    justify-content: center;
+    margin-top: 25%;
+    margin-left: 35%;
     color: black;  
-    margin-top: 25%; 
+    font-size: 50px;
 }
 </style>

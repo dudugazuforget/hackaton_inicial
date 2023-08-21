@@ -126,14 +126,12 @@ router.push('/alugar')
 
 
 
-
-  <div class="navbar"></div>
   <div class="listagem-imoveis">
     <div v-for="imovel in imoveis" :key="imovel.id" class="card-casa">
       <img :src="imovel.img" alt="capa" class="imovel-capa">
       <hr>
       <span><button class="b-alugar" @click="goAbout">Alugar</button></span>
-      <p class="imovel-valor">R${{ imovel.valor }}.000</p>
+      <p class="imovel-valor">R${{ imovel.valor }}00</p>
       <p class="imovel-local">{{ imovel.local }}</p>
     </div>
     <footer class="fixed-baseboard">
@@ -167,21 +165,23 @@ router.push('/alugar')
 
 .form-select {
   position: relative;
-  top: 120px;
+  top: 159px;
+  border-radius: 5px;
   left: 470px;
-  width: 270px;
-  height: 70px;
+  width: 280px;
+  height: 88px;
   margin-bottom: 20px;
   padding: 10px;
-  
+  background-color: transparent;
+  border-color:  rgba(128, 128, 128, 0.295);
 }
 
 .form-estado{
   position: relative;
-  top: 31px;
+  top: 49px;
   left: 165px;
-  width: 270px;
-  height: 70px;
+  width: 280px;
+  height: 88px;
   margin-bottom: 20px;
   padding: 10px;
   background-color: transparent;
@@ -205,12 +205,12 @@ router.push('/alugar')
 }
 
 
-.listagem-imoveis {
+.listagem-imoveis { 
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap;  
   width: 100%;
   margin: 0;
-  margin-left: 35px;
+  margin-left: 10%;
   margin-top: -80px;
 }
 
@@ -218,10 +218,12 @@ router.push('/alugar')
 .card-casa {
   margin: 0 29px;
   margin-top: 60px;
-  margin-bottom: 75px;
-  background-color: rgb(241, 235, 235);
-  border-radius: 20px;
-  width: 360px;
+  margin-bottom: 50px;
+  background-color: transparent;
+  border: 1px solid rgba(128, 128, 128, 0.295);
+  border-radius: 10px;
+  width: 400px;
+  height: 410px;
 }
 
 .contato {
@@ -259,6 +261,8 @@ router.push('/alugar')
   animation-name: ease;
   animation-duration: 0.7s;
   z-index: 3;
+  border-bottom-right-radius:10px ;
+  border-bottom-left-radius: 10px;
 }
 
 
@@ -305,8 +309,8 @@ router.push('/alugar')
 .imovel-capa {
 
 
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   width: 100%;
 
 
@@ -357,7 +361,7 @@ img {
   background-color: rgb(19, 88, 19);
   color: white;
   font-family: 'Poppins', sans-serif;
-  border-radius: 50px;
+  border-radius: 7px;
   height: 25px;
   width: 95px;
   left: 250px;
