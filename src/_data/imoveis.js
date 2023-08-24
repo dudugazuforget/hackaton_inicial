@@ -28,7 +28,7 @@ export const imoveis = [
 },
 {
     id: 4,
-    valor: 2000.0000 ,
+    valor: 2.000,
     local: 'itajoinaquari-ff',    
     estado: 'FF',
     tipo:'casa',  
@@ -37,7 +37,7 @@ export const imoveis = [
 },
 {
     id: 5,
-    valor: 11.300 ,
+    valor: 11,
     local: 'Rio de Janeiro-rj',   
     estado: 'RJ',
     tipo:'apartamento',   

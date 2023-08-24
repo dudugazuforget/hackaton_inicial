@@ -131,13 +131,16 @@ router.push('/alugar')
       <img :src="imovel.img" alt="capa" class="imovel-capa">
       <hr>
       <span><button class="b-alugar" @click="goAbout">Alugar</button></span>
-      <p class="imovel-valor">R${{ imovel.valor }}00</p>
+      <p class="imovel-valor">R${{ imovel.valor.toFixed(3) }}</p>
       <p class="imovel-local">{{ imovel.local }}</p>
     </div>
     <footer class="fixed-baseboard">
       <p>
         <span style="color: black;"><AlphaCCircleOutline/></span> 
         IfCoders 
+        <p>
+          Desenvolvimento
+        </p>
       </p>
     </footer>
   </div>
@@ -146,7 +149,6 @@ router.push('/alugar')
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400&display=swap%27%29%3B');
-
 
 
 
@@ -390,6 +392,7 @@ img {
   right: 1px;
   color: rgb(32, 133, 32);
   bottom: 0px;
+  display: flex;
 }
 </style>
 
