@@ -9,8 +9,5 @@ router.push('/login')
 </script>
 
 <template>
-
-  
     <login-page/>
-
 </template>

@@ -9,8 +9,5 @@ router.push('/alugado')
 </script>
 
 <template>
-
-  
     <alugado-page/>
-
 </template>

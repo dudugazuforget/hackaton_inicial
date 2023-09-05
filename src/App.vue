@@ -5,7 +5,6 @@ import { stringifyQuery } from 'vue-router';
 
 <template>
   <login-page/>
-  
   <router-view />
 </template>
 

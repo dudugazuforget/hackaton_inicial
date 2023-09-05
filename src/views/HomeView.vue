@@ -9,8 +9,5 @@ router.push('/home')
 </script>
 
 <template>
-
-  
     <home-page/>
-
 </template>

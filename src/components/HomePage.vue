@@ -40,8 +40,16 @@ function filtrar() {
 import { useRouter } from 'vue-router';
 const router = useRouter()
 
-function goAbout(){
-router.push('/alugar')
+function goAlugar(imovel){
+router.push({
+  name: 'alugar',
+  params: {
+    id: imovel.id
+  },
+  props: {
+    imovel
+  }
+})
 }
 </script>
 
@@ -130,7 +138,7 @@ router.push('/alugar')
     <div v-for="imovel in imoveis" :key="imovel.id" class="card-casa">
       <img :src="imovel.img" alt="capa" class="imovel-capa">
       <hr>
-      <span><button class="b-alugar" @click="goAbout">Alugar</button></span>
+      <span><button class="b-alugar" @click="goAlugar(imovel)">Alugar</button></span>
       <p class="imovel-valor">R${{ imovel.valor.toFixed(3) }}</p>
       <p class="imovel-local">{{ imovel.local }}</p>
     </div>

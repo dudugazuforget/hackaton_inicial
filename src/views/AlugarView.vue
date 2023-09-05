@@ -1,5 +1,10 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { getImovelById } from '../_data/imoveis';
+
+const props = defineProps(['id'])
+
+const imovel = computed(() => getImovelById(props.id))
 
 const mostrar_sb = ref(false);
 const mostrar_ct = ref(false)
@@ -40,20 +45,20 @@ function goAlugado() {
     </div>
 
     <div class="img">
-        <img src="https://i.pinimg.com/564x/f5/47/99/f54799e42148e400a5d2b448a40a6a6e.jpg  ">
+        <img :src="imovel?.img">
     </div>
     <div class="linha">
     </div>
-
+    
     <div class="valor">
-        <h1>R$450.00</h1>
+        <h1>{{ imovel?.valor }}</h1>
     </div>
-
+    
     <div class="localidade">
-        <p>Joinville/SC</p>
+        <p>{{ imovel?.local }}</p>
     </div>
     <div class="localidadeTwo">
-        <p>Rua:Manoel Ribas</p>
+        <p>{{ imovel?.estado }}</p>
     </div>
     <div class="termos">
         <p>O usuário do imóvel, após o uso do mesmo, é responsável <br>
@@ -250,7 +255,7 @@ function goAlugado() {
     font-family: 'Poppins';
     position: absolute;
     bottom: 130px;
-    left: 600px;
+    left: 500px;
     font-size: 23px;
 }
 
