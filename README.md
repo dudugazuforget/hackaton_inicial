@@ -1,4 +1,4 @@
-# a
+# Eduardo Gabriel dos Santos / Rafel de França / Leandro Gustavo dos Santos / João Otavio / Ruan Vitor / Davi / 2info1
 
 This template should help get you started developing with Vue 3 in Vite.
 
