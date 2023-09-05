@@ -31,7 +31,7 @@ router.push('/home')
 
 
 <template>
-  <div class="geral">
+  
 
     <form class="board-login" v-if="login">
       <h1 class="welcome">Bem-Vindo a Ifcoders</h1>
@@ -58,7 +58,7 @@ router.push('/home')
     <button class="lp" type="submit" @click="redefinido">Redefinir </button>
 
   </form>
-</div>
+
 </template>
 
 <style scoped>
@@ -74,8 +74,8 @@ height: 100%  ;
 }
 .board-login {
   position: absolute;
-  /*top: 30%;
-  left: 35%;*/
+  top: 30%;
+  left: 35%;
   background-color: #e6e4e4;
   width: 500px;
   height: 370px;
@@ -91,8 +91,8 @@ height: 100%  ;
 @media(max-width: 1400px){
   .board-login {
   position: absolute;
- /* top: 30%;
-  left: 35%;*/
+ top: 30%;
+  left: 35%;
   background-color: #e6e4e4;
   width: 300px;
   height: 170px;
