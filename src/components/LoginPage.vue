@@ -29,43 +29,53 @@ router.push('/home')
 }
 </script>
 
+
 <template>
-  <form class="board-login" v-if="login">
-    <h1 class="welcome">Bem-Vindo a Ifcoders</h1>
-    <h4 class="enter-login">Por favor insira seu login</h4>
-    <input type="email" placeholder="Email" v-model="email"> <br>
-    <input type="password" name="password" placeholder="Senha" required  v-model="senha"><br>
+  <div class="geral">
 
-    <button class="lp" @click="goLogin">Login</button>   
+    <form class="board-login" v-if="login">
+      <h1 class="welcome">Bem-Vindo a Ifcoders</h1>
+      <h4 class="enter-login">Por favor insira seu login</h4>
+      <input type="email" placeholder="Email" v-model="email"> <br>
+      <input type="password" name="password" placeholder="Senha" required  v-model="senha"><br>
+      
+      <button class="lp" @click="goLogin">Login</button>   
+      
+      
+      <p class="esqueceu-senha" @click="esqueceu">redefinir senha</p>
+      
+      
+    </form>
     
+    <form class="redefinir-Senha" v-if="redefinirSenha" >
 
-    <p class="esqueceu-senha" @click="esqueceu">redefinir senha</p>
-
-
-  </form>
-
-  <form class="redefinir-Senha" v-if="redefinirSenha" >
-
-    <h1 class="welcome">Redefina sua Senha</h1>
-
-    <input class="as" type="email" placeholder="Email" v-model="email"> <br>
-    <input class="as" type="password" name="password" placeholder="Senha" required  v-model="senha"><br>
-    <input class="as" type="password" name="password" placeholder="Confirmar senha" required  v-model="confSenha"><br>
-
+      <h1 class="welcome">Redefina sua Senha</h1>
+      
+      <input class="as" type="email" placeholder="Email" v-model="email"> <br>
+      <input class="as" type="password" name="password" placeholder="Senha" required  v-model="senha"><br>
+      <input class="as" type="password" name="password" placeholder="Confirmar senha" required  v-model="confSenha"><br>
+      
     <button class="lp" type="submit" @click="redefinido">Redefinir </button>
 
   </form>
+</div>
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400&display=swap%27%29%3B');
+.geral{
+  width: 100%;
+height: 100%  ;
+  justify-content: center;
+  align-items: center;
+}
 .enter-login{
   font-size: 12px;
 }
 .board-login {
   position: absolute;
-  top: 30%;
-  left: 35%;
+  /*top: 30%;
+  left: 35%;*/
   background-color: #e6e4e4;
   width: 500px;
   height: 370px;
@@ -81,8 +91,8 @@ router.push('/home')
 @media(max-width: 1400px){
   .board-login {
   position: absolute;
-  top: 30%;
-  left: 35%;
+ /* top: 30%;
+  left: 35%;*/
   background-color: #e6e4e4;
   width: 300px;
   height: 170px;
