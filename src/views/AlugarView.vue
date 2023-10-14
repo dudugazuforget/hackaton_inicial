@@ -40,27 +40,15 @@ function goAlugado() {
 }
 </script>
 <template>
+     
     <div class="title">
         <h1 @click="goHome" class="name-titleL">IfCoders</h1>
     </div>
-
+    <div class="body">
     <div class="img">
         <img :src="imovel?.img">
     </div>
-    <div class="linha">
-    </div>
-    
-    <div class="valor">
-        <h1>{{ imovel?.valor }}</h1>
-    </div>
-    
-    <div class="localidade">
-        <p>{{ imovel?.local }}</p>
-    </div>
-    <div class="localidadeTwo">
-        <p>{{ imovel?.estado }}</p>
-    </div>
-    <div class="termos">
+    <div class="termo">
         <p>O usuário do imóvel, após o uso do mesmo, é responsável <br>
             por manter o espaço limpo e higienizado, assegurando que o ambiente <br>
             seja mantido em condições adequadas de higiene e ordem durante sua <br>
@@ -72,32 +60,67 @@ function goAlugado() {
             imóvel, a fim de garantir uma transição tranquila e agradável para o <br>
             próximo usuário. </p>
     </div>
+</div>
+<hr>
+<div class="compra">
+    <div class="info">
+        <h1>R${{ imovel?.valor.toFixed(3) }}</h1>
+    </div>  
+    <div class="info">
+        <p>{{imovel?.local}} </p>
+    </div>
+    <div class="info">
+        <p><strong>Tipo do imovel: </strong>{{imovel?.tipo}} </p>
+    </div>
+    <div class="info">
+        <p>{{imovel?.estado}} </p>
+    </div>
     <input class="ckbx-term" type="checkbox" name="a" id="a">
     <label class="txt-ckbx" for="">Aceito os termos acima</label>
-    <button  class="botao-alugar" @click="goAlugado">Alugar</button>
+    <div class="aluga">
+        <button  class="botao-alugar" @click="goAlugado">Alugar</button>
+    </div>
+</div>
 </template>
 
 <style>
+
+.aluga{
+ display: flex;
+ margin: 0 auto;
+}
+.compra{
+    display: flex;
+    width: 42%;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+*{
+    margin: 0;
+    
+}
+.body{
+    display: flex;
+    margin-top: 54px;
+}
 .name-titleL {
-    margin-top: 20px;
-    margin-left: 20px;
     color: rgb(34, 161, 34);
     cursor: pointer;
     transition: 0.5s;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .name-titleL:hover {
-    font-size: 45px;
+    font-size: 35px;
 
 }
-
-
 .title {
     position: fixed;
     top: 0px;
     left: 0;
     width: 100%;
-    height: 10vh;
+    height: 54px;
     border: 0;
     background-color: rgb(44, 40, 40);
     text-align: left;
@@ -106,50 +129,6 @@ function goAlugado() {
     font-weight: bold;
     z-index: 3;
 }
-
-.contato {
-    position: absolute;
-    background-color: transparent;
-    color: rgb(200, 221, 200);
-    border: 0;
-    margin-top: -37px;
-    margin-left: 350px;
-}
-
-
-.sobre-nos {
-    position: absolute;
-    background-color: transparent;
-    color: rgb(200, 221, 200);
-    border: 0;
-    margin-top: -37px;
-    margin-left: 230px;
-}
-
-
-.sobre {
-    position: absolute;
-    padding: 20px;
-    top: 93px;
-    width: 400Px;
-    border-bottom-right-radius: 5px;
-    height: 700px;
-    color: rgb(73, 68, 68);
-    background-color: rgb(241, 235, 235);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation-name: ease;
-    animation-duration: 0.7s;
-    z-index: 3;
-}
-
-
-.text-sobre {
-    animation-name: slide;
-    animation-duration: 3s;
-}
-
 
 @keyframes slide {
     from {
@@ -185,46 +164,20 @@ function goAlugado() {
 }
 
 
-.imovel-capa {
-
-
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    width: 100%;
-
-
-}
-
-
-.txt-ckbx {
-    position: absolute;
-    bottom: 40%;
-    right: 42%;
-}
-
 .ckbx-term {
-    position: absolute;
-    bottom: 40%;
-    right: 52%;
-    height: 20px;
     width: 20px;
 }
 
 .botao-alugar {
-    position: absolute;
-    bottom: 200px;
-    right: 500px;
     border: 0;
-    height: 80px;
-    width: 250px;
+    height: 60px;
+    width: 150px;
     background-color: #2A823D;
     font-family: 'Poppins';
     color: aliceblue;
     font-size: 24px;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: 0.5s;
-
-
 }
 
 .botao-alugar:hover {
@@ -233,56 +186,51 @@ function goAlugado() {
     transition: all 0.5s;
 }
 
-.termos {
-    position: absolute;
+.termo {
     font-family: 'Poppins';
-    top: 200px;
-    right: 200px;
     font-size: 22px;
+    width: 80%;
+    padding: 30px 0px 0px 20px;
 }
 
 .localidadeTwo {
-
     font-family: 'Poppins';
-    position: absolute;
-    bottom: 100px;
-    left: 550px;
     font-size: 23px;
 }
 
 .localidade {
-
     font-family: 'Poppins';
-    position: absolute;
     bottom: 130px;
-    left: 500px;
     font-size: 23px;
 }
 
 .valor {
-    position: absolute;
     font-weight: 400;
     color: #2A823D;
-    bottom: 120px;
-    left: 100px;
 }
+.info{
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
 
-.img {
-    position: absolute;
-    top: 150px;
-    left: 120px;
-    width: 600px;
-    height: 498px;
-    
 }
-
-.linha {
-
-    position: absolute;
-    bottom: 190px;
-    left: 90px;
-    width: 645.005px;
-    height: 1px;
-    background-color: black;
+label{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}
+@media (max-width: 1000px){
+    .body{
+        flex-wrap: wrap;
+        width: 500px;
+    }
+}
+@media (max-width: 500px){
+    .body{
+        width: 100%;
+    }
+    img{
+        width: 100%;
+    }
 }
 </style>

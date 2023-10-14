@@ -55,10 +55,9 @@ router.push({
 
 
 <template>
-  <div class="title">
+  <div class="header">
     <h1 class="name-title" >IfCoders</h1>
-
-    <div>
+<div class="buttons">
       <button @click="toggleSobreNos" class="sobre-nos">{{ mostrar_sb ? 'Voltar' : 'Sobre nós'
       }}</button>
       <div v-if="mostrar_sb" class="sobre">
@@ -71,8 +70,7 @@ router.push({
           e gratificante. Bem-vindo à <span style="color:rgb(34, 161, 34);">IfCoders</span>!
         </p>
       </div>
-    </div>
-    <div>
+    
       <button @click="toggleContato" class="contato">{{ mostrar_ct ? 'voltar' : 'Contato' }}</button>
       <div v-if="mostrar_ct" class="sobre">
         <p>Entre em contato conosco! Estamos aqui para ajudar. Use o numero abaixo ou nosso email de contato
@@ -82,11 +80,11 @@ router.push({
         </p>
       </div>
     </div>
-
-
-
   </div>
 
+
+  
+    <div class="form-floating">
   <select class="form-select">
     <option value="0">Selecione o Tipo de imovel</option>
     <option value="1">Apartamento</option>
@@ -94,7 +92,7 @@ router.push({
     <option value="3">Chacara</option>
   </select>
 
-  <div class="form-floating">
+  
     <select class="form-estado" placeholder="Selecione Seu Estado">
       <option value="">Selecione Seu Estado</option>
       <option value="AC">Acre</option>
@@ -127,12 +125,11 @@ router.push({
       <option value="FF">Forfra</option>
     </select>
 
-  </div>
+  
 
   <input type="number" class="pessoas-input" placeholder="Quartos desejados">
   <button @click="run_filter" class="b-filtrar">Filtrar</button>
-
-
+</div>
 
   <div class="listagem-imoveis">
     <div v-for="imovel in imoveis" :key="imovel.id" class="card-casa">
@@ -157,61 +154,42 @@ router.push({
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400&display=swap%27%29%3B');
-
-
-
-.pessoas-input {
-  position: relative;
+.buttons{
+  display: flex;
+  justify-content: center;
+}
+.form-floating{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  height: 80px;
+  margin: 60px 30px;
   text-align: center;
-  top: -60px;
-  left: 780px;
-  width: 400px;
-  height: 70px;
-  margin-bottom: 20px;
-  padding: 10px;
+}
+.pessoas-input {
+  text-align: center;
   border: 1px solid rgba(128, 128, 128, 0.295);
   border-radius: 5px;
 }
 
 .form-select {
-  position: relative;
-  top: 159px;
   border-radius: 5px;
-  left: 470px;
-  width: 280px;
-  height: 88px;
-  margin-bottom: 20px;
-  padding: 10px;
   background-color: transparent;
   border-color:  rgba(128, 128, 128, 0.295);
 }
 
 .form-estado{
-  position: relative;
-  top: 49px;
-  left: 165px;
-  width: 280px;
-  height: 88px;
-  margin-bottom: 20px;
-  padding: 10px;
   background-color: transparent;
   border: 1px solid rgba(128, 128, 128, 0.295);
   border-radius: 5px;
 }
 
 .b-filtrar {
-  position: relative;
-  top: -60px;
-  right: -820px;
-  width: 270px;
-  height: 70px;
-  padding: 10px;
   background-color: rgb(32, 133, 32);
   color: white;
   font-family: 'Poppins', sans-serif;
   border-radius: 10px;
   border: 0;
-  z-index: 2;
 }
 
 
@@ -220,49 +198,42 @@ router.push({
   flex-wrap: wrap;  
   width: 100%;
   margin: 0;
-  margin-left: 10%;
-  margin-top: -80px;
+  justify-content: center;
 }
 
 
 .card-casa {
-  margin: 0 29px;
-  margin-top: 60px;
-  margin-bottom: 50px;
   background-color: transparent;
   border: 1px solid rgba(128, 128, 128, 0.295);
   border-radius: 10px;
   width: 400px;
   height: 410px;
+  margin: 20px;
 }
 
 .contato {
-  position: absolute;
   background-color: transparent;
   color: rgb(200, 221, 200);
   border: 0;
-  margin-top: -37px;
-  margin-left: 350px;
 }
 
 
 .sobre-nos {
-  position: absolute;
   background-color: transparent;
   color: rgb(200, 221, 200);
   border: 0;
-  margin-top: -37px;
-  margin-left: 230px;
+  margin-left: 20px;
 }
 
 
 .sobre {
   position: absolute;
+  margin-left: 24px;
   padding: 20px;
-  top: 93px;
+  top: 50px;
   width: 400Px;
   border-bottom-right-radius: 5px;
-  height: 700px;
+  height: 100vh;
   color: rgb(73, 68, 68);
   background-color: rgb(241, 235, 235);
   display: flex;
@@ -273,6 +244,7 @@ router.push({
   z-index: 3;
   border-bottom-right-radius:10px ;
   border-bottom-left-radius: 10px;
+  
 }
 
 
@@ -280,7 +252,6 @@ router.push({
   animation-name: slide;
   animation-duration: 3s;
 }
-
 
 @keyframes slide {
   from {
@@ -317,36 +288,34 @@ router.push({
 
 
 .imovel-capa {
-
-
+  position: sticky;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   width: 100%;
-
-
 }
 
 
 .name-title {
-  margin-top: 20px;
-  margin-left: 20px;
   color: rgb(34, 161, 34);
+  margin: 0px 0px 0px 0px;
+  max-width: 40%;
 }
 
 
-.title {
+.header {
+  display: flex;
   position: fixed;
-  top: 0px;
-  left: 0;
   width: 100%;
-  height: 10vh;
+  height: 50px;
   border: 0;
   background-color: rgb(44, 40, 40);
   text-align: left;
   font-family: 'Poppins', sans-serif;
   color: rgb(200, 221, 200);
   font-weight: bold;
-  z-index: 3;
+  top: 0px;
+  z-index: 10;
+  margin-left: -8px;
 }
 
 
@@ -401,6 +370,18 @@ img {
   color: rgb(32, 133, 32);
   bottom: 0px;
   display: flex;
+}
+@media (max-width: 500px){
+  .card-casa{
+    margin: 0;
+  }
+  .form-floating{
+    grid-template-columns: 1fr 1fr;
+  }
+  .sobre{
+    width: 300px;
+    margin-left: -42px;
+  }
 }
 </style>
 

@@ -96,7 +96,7 @@ export const imoveis = [
         estado: 'GO',
         tipo: 'chacara',
         QtdQua: '10',
-        img: 'https://www.chacaraselazer.com.br/uploads/anuncio/5125/15932010595.jpg'
+        img: 'https://www.residenciaimoveis.com/foto_/2023/6489/mococa-rural-chacara-chacara-bela-vista-28-03-2023_10-08-56-1.webp'
     },
     {
         id: 12,

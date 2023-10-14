@@ -30,6 +30,7 @@ router.push('/home')
 </script>
 
 <template>
+  <div id="body">
   <form class="board-login" v-if="login">
     <h1 class="welcome">Bem-Vindo a Ifcoders</h1>
     <h4>Por favor insira seu login</h4>
@@ -55,14 +56,12 @@ router.push('/home')
     <button type="submit" @click="redefinido">Redefinir </button>
 
   </form>
+</div>
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400&display=swap%27%29%3B');
 .board-login {
-  position: absolute;
-  top: 30%;
-  left: 35%;
   background-color: #e6e4e4;
   width: 500px;
   height: 370px;
@@ -76,13 +75,12 @@ router.push('/home')
 }
 
 .redefinir-Senha{
-  position: absolute;
   top: 30%;
   left: 35%;
   background-color: #e6e4e4;
   width: 500px;
   height: 350px;
-  padding: 20px;
+ padding: 20px;
   justify-content: center;
   text-align: center;
   border-radius: 20px;
@@ -131,4 +129,22 @@ button {
   font-family:'Poppins', sans-serif;
   font-weight: 600;
 }
-</style>
+#body{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  align-items: center;
+}
+@media (max-width: 500px){
+  .board-login{
+    scale: 0.8;
+  }
+  .redefinir-Senha{
+    margin-top: 2px;
+  }
+  .esqueceu-senha{
+    margin-top: 2px;
+  }
+}
+</style>  
