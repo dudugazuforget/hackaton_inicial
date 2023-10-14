@@ -7,6 +7,7 @@ function goAlugado(){
 router.push('/alugado')
 }
 </script>
+ 
 
 <template>
     <alugado-page/>

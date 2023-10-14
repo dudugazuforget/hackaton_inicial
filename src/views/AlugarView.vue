@@ -1,34 +1,11 @@
 <script setup>
-import { ref, computed } from 'vue';
+import {  computed } from 'vue';
 import { getImovelById } from '../_data/imoveis';
 
 const props = defineProps(['id'])
 
 const imovel = computed(() => getImovelById(props.id))
 
-const mostrar_sb = ref(false);
-const mostrar_ct = ref(false)
-
-
-function toggleSobreNos() {
-    mostrar_sb.value = !mostrar_sb.value;
-    if (!mostrar_sb.value) {
-        Voltar();
-    }
-}
-
-
-function toggleContato() {
-    mostrar_ct.value = !mostrar_ct.value;
-    if (!mostrar_ct.value) {
-        Voltar();
-    }
-}
-
-function Voltar() {
-    mostrar_sb.value = false;
-    mostrar_ct.value = false;
-}
 
 import { useRouter } from 'vue-router';
 const router = useRouter()
@@ -103,65 +80,32 @@ function goAlugado() {
     display: flex;
     margin-top: 54px;
 }
-.name-titleL {
-    color: rgb(34, 161, 34);
-    cursor: pointer;
-    transition: 0.5s;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
-.name-titleL:hover {
-    font-size: 35px;
-
-}
-.title {
-    position: fixed;
-    top: 0px;
-    left: 0;
-    width: 100%;
-    height: 54px;
-    border: 0;
-    background-color: rgb(44, 40, 40);
-    text-align: left;
-    font-family: 'Poppins', sans-serif;
-    color: rgb(200, 221, 200);
-    font-weight: bold;
-    z-index: 3;
-}
-
-@keyframes slide {
-    from {
-
-
-        opacity: 0;
+    .name-titleL {
+        color: rgb(34, 161, 34);
+        cursor: pointer;
+        transition: 0.5s;
+        margin-top: 0px;
+        margin-bottom: 0px;
     }
 
+    .name-titleL:hover {
+        font-size: 35px;
 
-    to {
-
-
-        opacity: 1;
     }
-
-
-}
-
-
-@keyframes ease {
-    from {
-
-
-        width: 0px;
+    .title {
+        position: fixed;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 54px;
+        border: 0;
+        background-color: rgb(44, 40, 40);
+        text-align: left;
+        font-family: 'Poppins', sans-serif;
+        color: rgb(200, 221, 200);
+        font-weight: bold;
+        z-index: 3;
     }
-
-
-    to {
-
-
-        width: 400px;
-    }
-}
 
 
 .ckbx-term {
@@ -177,7 +121,7 @@ function goAlugado() {
     color: aliceblue;
     font-size: 24px;
     border-radius: 10px;
-    transition: 0.5s;
+    transition: 0.5s;   
 }
 
 .botao-alugar:hover {
