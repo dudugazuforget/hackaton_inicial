@@ -7,13 +7,20 @@ const props = defineProps(['id'])
 const imovel = computed(() => getImovelById(props.id))
 
 
+
 import { useRouter } from 'vue-router';
 const router = useRouter()
-function goHome() {
-    router.push('/home')
-}
-function goAlugado() {
-    router.push('/alugado')
+
+function goAlugado(imovel){
+router.push({
+  name: 'alugado',
+  params: {
+    id: imovel.id
+  },
+  props: {
+    imovel
+  }
+})
 }
 </script>
 <template>
@@ -53,7 +60,7 @@ function goAlugado() {
         <p>{{imovel?.estado}} </p>
     </div>
     <input class="ckbx-term" type="checkbox" name="a" id="a">
-    <label class="txt-ckbx" for="">Aceito os termos acima</label>
+    <label class="txt-ckbx" for=""> <strong> Aceito os termos acima</strong></label>
     <div class="aluga">
         <button  class="botao-alugar" @click="goAlugado">Alugar</button>
     </div>
