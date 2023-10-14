@@ -10,17 +10,11 @@ const imovel = computed(() => getImovelById(props.id))
 
 import { useRouter } from 'vue-router';
 const router = useRouter()
-
-function goAlugado(imovel){
-router.push({
-  name: 'alugado',
-  params: {
-    id: imovel.id
-  },
-  props: {
-    imovel
-  }
-})
+function goHome(){
+    router.push('/home')
+}
+function goAlugado() {
+  router.push('/alugado')
 }
 </script>
 <template>
