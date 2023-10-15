@@ -151,7 +151,7 @@ function Voltar() {
 
 .name-title {
   color: rgb(34, 161, 34);
-  margin: 0px 0px 0px 0px;
+  margin: 0px 5px 5px 10px;
   max-width: 40%;
   cursor: pointer;
   transition: 0.5s;

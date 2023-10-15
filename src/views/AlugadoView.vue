@@ -4,6 +4,7 @@ import CheckboxMarkedCircleOutline from 'vue-material-design-icons/CheckboxMarke
 import { getImovelById } from '../_data/imoveis';
 import { computed } from 'vue';
 import NavBar from '../components/NavBar.vue';
+import emailjs from 'emailjs-com';
 
 const props = defineProps(['id'])
 
@@ -14,18 +15,17 @@ const visitaAgendada = ref(false);
 const email = ref('');
 const nome = ref('');
 const dataHora = ref('');
-import emailjs from 'emailjs-com';
 
-// ...      
+
 
 function confirmaVisita() {
     visita.value = false;
     visitaAgendada.value = true;
 
     if (email.value && nome.value && dataHora.value) {
-        const serviceID = 'seu_service_id';
-        const templateID = 'seu_template_id';
-        const userID = 'seu_user_id';
+        const serviceID = 'service_7m5b0j5';
+        const templateID = 'template_kke5rol';
+        const userID = 'hvIokEjEa46sZcQrm';
 
         emailjs.send(serviceID, templateID, {
             to_email: email.value,
@@ -35,10 +35,12 @@ function confirmaVisita() {
         .then(function(response) {
             console.log('E-mail enviado com sucesso:', response);
         }, function(error) {
-            console.error('Erro ao enviar e-mail:', error);
+            alert('Erro ao enviar e-mail:', error);
         });
     } else {
-        console.error('Preencha todos os campos antes de agendar a visita.');
+        alert('Preencha todos os campos antes de agendar a visita.');
+        visita.value = true;
+    visitaAgendada.value = false;
     }
 }
 
@@ -75,7 +77,7 @@ function confirmaVisita() {
             <h1>Visita Agendada</h1>
             <h3>{{ nome }}</h3>
 
-            <h3>Acesse o email para mais informações</h3>
+            <h3>Acesse seu email para mais informações</h3>
 
             <CheckboxMarkedCircleOutline />
         </div>
