@@ -1,6 +1,8 @@
 <script setup>
 import {  computed } from 'vue';
 import { getImovelById } from '../_data/imoveis';
+import NavBar from '../components/NavBar.vue';
+
 
 const props = defineProps(['id'])
 
@@ -10,18 +12,22 @@ const imovel = computed(() => getImovelById(props.id))
 
 import { useRouter } from 'vue-router';
 const router = useRouter()
-function goHome(){
-    router.push('/home')
-}
-function goAlugado() {
-  router.push('/alugado')
+
+function goAlugado(imovel){
+router.push({
+  name: 'alugado',
+  params: {
+    id: imovel.id
+  },
+  props: {
+    imovel
+  }
+})
 }
 </script>
 <template>
-     
-    <div class="title">
-        <h1 @click="goHome" class="name-titleL">IfCoders</h1>
-    </div>
+     <NavBar/>
+   
     <div class="body">
     <div class="img">
         <img :src="imovel?.img">
@@ -56,7 +62,7 @@ function goAlugado() {
     <input class="ckbx-term" type="checkbox" name="a" id="a">
     <label class="txt-ckbx" for=""> <strong> Aceito os termos acima</strong></label>
     <div class="aluga">
-        <button  class="botao-alugar" @click="goAlugado">Alugar</button>
+        <button  class="botao-alugar" @click="goAlugado">Agendar Visita</button>
     </div>
 </div>
 </template>
@@ -81,33 +87,7 @@ function goAlugado() {
     display: flex;
     margin-top: 54px;
 }
-    .name-titleL {
-        color: rgb(34, 161, 34);
-        cursor: pointer;
-        transition: 0.5s;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
-    .name-titleL:hover {
-        font-size: 35px;
-
-    }
-    .title {
-        position: fixed;
-        top: 0px;
-        left: 0;
-        width: 100%;
-        height: 54px;
-        border: 0;
-        background-color: rgb(44, 40, 40);
-        text-align: left;
-        font-family: 'Poppins', sans-serif;
-        color: rgb(200, 221, 200);
-        font-weight: bold;
-        z-index: 3;
-    }
-
+    
 
 .ckbx-term {
     width: 20px;
@@ -116,7 +96,7 @@ function goAlugado() {
 .botao-alugar {
     border: 0;
     height: 60px;
-    width: 150px;
+    width: 250px;
     background-color: #2A823D;
     font-family: 'Poppins';
     color: aliceblue;
