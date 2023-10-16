@@ -69,6 +69,14 @@ function confirmaVisita() {
             <button type="submit" @click="confirmaVisita">Agendar</button>
             <form action=" "></form>
         </div>
+        <div class="ifo-imovel"  v-if="visita">
+            <h2>Informações do Imovel escolhido</h2>
+            <h3>Valor do Imovel: R${{ imovel.valor.toFixed(3) }}</h3>
+            <h3>Localidade do imovel:{{ imovel.local }}.</h3>
+            <h3>Tipo de Imovel:{{ imovel.tipo }}.</h3>
+            <h3>Quantia de banheiros: {{ imovel.QtdBanh }}.</h3>
+            <h3>Quantia de quartos: {{ imovel.QtdQua }}.</h3>
+        </div>
 
         <div class="agendado" v-if="visitaAgendada">
 
@@ -86,7 +94,14 @@ function confirmaVisita() {
     </div>
 </template>
 <style scoped>
-.agendado {
+    .ifo-imovel{
+    background-color: rgba(107, 105, 103, 0.404);
+    box-shadow: 5px 4px rgba(67, 68, 67, 0.623);
+    padding: 2%;
+    border-radius: 5px;
+    font-family: Poppins;
+    }
+    .agendado {
     width: 400px;
     height: 400px;
     background-color: rgb(44, 40, 40);

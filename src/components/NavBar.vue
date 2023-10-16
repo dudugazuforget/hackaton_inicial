@@ -7,6 +7,10 @@ const router = useRouter()
 function goHome(){
     router.push('/home')
 }
+function goPerfil(){
+  router.push('/perfil')
+}
+
 
 
 const mostrar_sb = ref(false);
@@ -62,12 +66,22 @@ function Voltar() {
         </p>
       </div>
     </div>
+    
+      <p class="perfil" @click="goPerfil">Perfil</p>
+
   </div>
 
 
 </template>
 
 <style scoped>
+.perfil{
+  display: flex;
+  justify-items: center;
+  cursor: pointer;
+  margin-left: 155vh;
+  margin-top: 1rem;
+}
 .buttons{
   display: flex;
   justify-content: center;
