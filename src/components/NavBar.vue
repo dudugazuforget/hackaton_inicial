@@ -43,6 +43,7 @@ function Voltar() {
   <div class="header">
     <h1 @click="goHome" class="name-title" >IfCoders</h1>
 <div class="buttons">
+  <button class="perfil" @click="goPerfil">Perfil</button>
       <button @click="toggleSobreNos" class="sobre-nos">{{ mostrar_sb ? 'Voltar' : 'Sobre nós'
       }}</button>
       <div v-if="mostrar_sb" class="sobre">
@@ -67,7 +68,6 @@ function Voltar() {
       </div>
     </div>
     
-      <p class="perfil" @click="goPerfil">Perfil</p>
 
   </div>
 
@@ -76,11 +76,15 @@ function Voltar() {
 
 <style scoped>
 .perfil{
-  display: flex;
-  justify-items: center;
+
   cursor: pointer;
-  margin-left: 155vh;
-  margin-top: 1rem;
+  background-color: transparent;
+  color: rgb(200, 221, 200);
+  border: 0;
+  margin-left: 20px;
+
+
+
 }
 .buttons{
   display: flex;
@@ -98,7 +102,6 @@ function Voltar() {
   background-color: transparent;
   color: rgb(200, 221, 200);
   border: 0;
-  margin-left: 20px;
 }
 
 

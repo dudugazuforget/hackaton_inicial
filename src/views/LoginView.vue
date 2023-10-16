@@ -1,10 +1,11 @@
 <script setup>
 import { ref } from 'vue';
+import { perfil } from '../_data/login';
 
-const username = ref('')
-const senha = ref('')
-const cidade =  ref('')
-const confSenha = ref('')
+ const username = ref(perfil.username)
+ const senha = ref(perfil.senha)
+ const cidade =  ref(perfil.cidade)
+ const confSenha = ref('')
 
 const login = ref(true)
 const redefinirSenha = ref(false)
@@ -30,16 +31,15 @@ router.push('/home')
 }
 </script>
 
-<template>
+<template>  
   <div id="body">
   <form class="board-login" v-if="login">
     <h1 class="welcome">Bem-Vindo a Ifcoders</h1>
     <h4>Por favor insira seu login</h4>
-    <input type="text" placeholder="Username" v-model="email"> <br>
-    <input type="text" placeholder="Cidade" v-model="cidade">  
-    <input type="password" name="password" placeholder="Senha" required  v-model="senha"><br>
+    <input type="text" placeholder="Username" v-model="perfil.username"> <br>
+    <input type="text" placeholder="Cidade" v-model="perfil.cidade">  
 
-    <button  @click="goLogin">Login</button>   
+    <button type="submit" @click="goLogin">Login</button>   
     
 
     <p class="esqueceu-senha" @click="esqueceu">redefinir senha</p>
@@ -51,7 +51,7 @@ router.push('/home')
 
     <h1 class="welcome">Redefina sua Senha</h1>
 
-      <input type="email" placeholder="" v-model="email"> <br>
+      <input type="email" placeholder="Username" v-model="email"> <br>
     <input type="password" name="password" placeholder="Senha" required  v-model="senha"><br>
     <input type="password" name="password" placeholder="Confirmar senha" required  v-model="confSenha"><br>
    
