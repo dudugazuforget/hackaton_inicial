@@ -1,96 +1,91 @@
 <script setup>
-import AlphaCCircleOutline from 'vue-material-design-icons/AlphaCCircleOutline.vue'
-import { imoveis } from '@/_data/imoveis.js';
 import NavBar from '../components/NavBar.vue';
-
-
-
-function filtrar() {
-
-
-}
+import { ref, computed } from 'vue';
+import { imoveis } from '@/_data/imoveis.js';
 import { useRouter } from 'vue-router';
-const router = useRouter()
 
-function goAlugar(imovel){
-router.push({
-  name: 'alugar',
-  params: {
-    id: imovel.id
-  },
-  props: {
-    imovel
-  }
-})
+const filtroTipo = ref(0); 
+const filtroEstado = ref('');
+const filtroValor = ref(0);
+
+const router = useRouter();
+
+function goAlugar(imovel) {
+  router.push({
+    name: 'alugar',
+    params: {
+      id: imovel.id
+    },
+    props: {
+      imovel
+    }
+  });
 }
+
+
+const imoveisFiltrados = computed(() => {
+  return imoveis.filter((imovel) => {
+    if (filtroTipo.value !== 0 && imovel.tipo !== filtroTipo.value) {
+      return false;
+    }
+    if (filtroEstado.value !== '' && imovel.estado !== filtroEstado.value) {
+      return false;
+    }
+    if (filtroValor.value > 0 && imovel.valor < filtroValor.value) {
+      return false;
+    }
+    else{
+     console.log( "França Lindo")
+      return true;
+    }
+  });
+});
 
 </script>
 
-
 <template>
-<NavBar/>
+  <NavBar />
+  <div >
 
-  
     <div class="form-floating">
-  <select class="form-select">
-    <option value="0">Selecione o Tipo de imovel</option>
-    <option value="1">Apartamento</option>
-    <option value="2">Casa</option>
-    <option value="3">Chacara</option>
-  </select>
+      <select class="form-select" v-model="filtroTipo">
+        <option value="0">Selecione o Tipo de imóvel</option>
+        <option value="Apartamento">Apartamento</option>
+        <option value="Casa">Casa</option>
+        <option value="Chacara">Chácara</option>
+      </select>
 
-  
-    <select class="form-estado" placeholder="Selecione Seu Estado">
-      <option value="">Selecione Seu Estado</option>
-      <option value="AC">Acre</option>
-      <option value="AL">Alagoas</option>
-      <option value="AP">Amapá</option>
-      <option value="AM">Amazonas</option>
-      <option value="BA">Bahia</option>
-      <option value="CE">Ceará</option>
-      <option value="DF">Distrito Federal</option>
-      <option value="ES">Espirito Santo</option>
-      <option value="GO">Goiás</option>
-      <option value="MA">Maranhão</option>
-      <option value="MS">Mato Grosso do Sul</option>
-      <option value="MT">Mato Grosso</option>
-      <option value="MG">Minas Gerais</option>
-      <option value="PA">Pará</option>
-      <option value="PB">Paraíba</option>
-      <option value="PR">Paraná</option>
-      <option value="PE">Pernambuco</option>
-      <option value="PI">Piauí</option>
-      <option value="RJ">Rio de Janeiro</option>
-      <option value="RN">Rio Grande do Norte</option>
-      <option value="RS">Rio Grande do Sul</option>
-      <option value="RO">Rondônia</option>
-      <option value="RR">Roraima</option>
-      <option value="SC">Santa Catarina</option>
-      <option value="SP">São Paulo</option>
-      <option value="SE">Sergipe</option>
-      <option value="TO">Tocantins</option>
-      <option value="FF">Forfra</option>
-    </select>
+      <select class="form-estado" v-model="filtroEstado">
+        <option value="">Selecione Seu Estado</option>
+        <option value="AM">Amazonas</option>
+        <option value="BA">Bahia</option>
+        <option value="DF">Distrito Federal</option>
+        <option value="GO">Goiás</option>
+        <option value="RJ">Rio de Janeiro</option>
+        <option value="RS">Rio Grande do Sul</option>
+        <option value="SC">Santa Catarina</option>
+        <option value="SP">São Paulo</option>
+        <option value="TO">Tocantins</option>
+        <option value="FF">Forfra</option>
+      </select>
 
-  
-
-  <input type="number" class="pessoas-input" placeholder="Quartos desejados">
-  <button @click="run_filter" class="b-filtrar">Filtrar</button>
-</div>
-
-  <div class="listagem-imoveis">
-    <div v-for="imovel in imoveis" :key="imovel.id" class="card-casa">
-      <img :src="imovel.img" alt="capa" class="imovel-capa">
-      <hr>
-      <span><button class="b-alugar" @click="goAlugar(imovel)">Alugar</button></span>
-      <div class="sub-card">
-      <p class="imovel-valor">R${{ imovel.valor.toFixed(3) }}</p>
-      <strong><p class="imovel-local">{{ imovel.local }}</p></strong>
-      <p class="imovel-quartos"> {{ imovel.QtdQua }} Quartos</p>
-      <p class="imovel-quartos"> {{ imovel.QtdBanh }} Banheiros</p>
+      <input type="number" class="valor-input"  v-model="filtroValor" placeholder="Valor desejado">
     </div>
 
+    <div class="listagem-imoveis">
+      <div v-for="imovel in imoveisFiltrados" :key="imovel.id" class="card-casa">
+        <img :src="imovel.img" alt="capa" class="imovel-capa">
+        <hr>
+        <span><button class="b-alugar" @click="goAlugar(imovel)">Alugar</button></span>
+        <div class="sub-card">
+          <p class="imovel-valor">R${{ imovel.valor.toFixed(3) }}</p>
+          <strong><p class="imovel-local">{{ imovel.local }}</p></strong>
+          <p class="imovel-quartos"> {{ imovel.QtdQua }} Quartos</p>
+          <p class="imovel-quartos"> {{ imovel.QtdBanh }} Banheiros</p>
+        </div>
+      </div>
     </div>
+
     <footer class="fixed-baseboard">
       <p>
         <span style="color: black;"><AlphaCCircleOutline/></span> 
@@ -101,7 +96,7 @@ router.push({
       </p>
     </footer>
   </div>
-</template>
+</template> 
 
 
 <style scoped>
@@ -115,13 +110,13 @@ flex-wrap: wrap;
 }
 .form-floating{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr ;
   justify-content: center;
   height: 80px;
   margin: 60px 30px;
   text-align: center;
 }
-.pessoas-input {
+.valor-input {
   text-align: center;
   border: 1px solid rgba(128, 128, 128, 0.295);
   border-radius: 5px;
