@@ -41,164 +41,115 @@ function Voltar() {
 
 <template>
   <div class="header">
-    <h1 @click="goHome" class="name-title" >IfCoders</h1>
-<div class="buttons">
-  <button class="perfil" @click="goPerfil">Perfil</button>
-      <button @click="toggleSobreNos" class="sobre-nos">{{ mostrar_sb ? 'Voltar' : 'Sobre nós'
-      }}</button>
-      <div v-if="mostrar_sb" class="sobre">
-        <p class="text-sobre">
-          Somos a <span style="color:rgb(34, 161, 34);">IfCoders</span>, uma inovadora empresa de locação de imóveis
-          fundada por dois jovens empreendedores programadores. Unimos tecnologia e expertise no mercado imobiliário para
-          simplificar e aprimorar a experiência de locação. Nossa plataforma intuitiva e orientada por dados conecta
-          proprietários e inquilinos de forma rápida e segura. Valorizamos o atendimento ao cliente e buscamos criar uma
-          comunidade confiável e sustentável. Junte-se a nós nessa jornada rumo a uma locação de imóveis mais inteligente
-          e gratificante. Bem-vindo à <span style="color:rgb(34, 161, 34);">IfCoders</span>!
-          </p>
-          
+    <h1 @click="goHome" class="name-title">IfCoders</h1>
+    <div class="buttons">
+      <button class="perfil" @click="goPerfil">Perfil</button>
+      <button @click="toggleSobreNos" class="sobre-nos">{{ mostrar_sb ? 'Voltar' : 'Sobre nós' }}</button>
+      <div v-if="mostrar_sb" class="info-box">
+        <p class="info-text">
+          Somos a <span class="highlight">IfCoders</span>, uma inovadora empresa de locação de imóveis fundada por dois jovens empreendedores programadores. Unimos tecnologia e expertise no mercado imobiliário para simplificar e aprimorar a experiência de locação. Nossa plataforma intuitiva e orientada por dados conecta proprietários e inquilinos de forma rápida e segura. Valorizamos o atendimento ao cliente e buscamos criar uma comunidade confiável e sustentável. Junte-se a nós nessa jornada rumo a uma locação de imóveis mais inteligente e gratificante. Bem-vindo à <span class="highlight">IfCoders</span>!
+        </p>
       </div>
-    
-      <button @click="toggleContato" class="contato">{{ mostrar_ct ? 'voltar' : 'Contato' }}</button>
-      <div v-if="mostrar_ct" class="sobre">
-        <p>Entre em contato conosco! Estamos aqui para ajudar. Use o numero abaixo ou nosso email de contato
-          para falar conosco. Esperamos por sua mensagem! <br>
-          <span style="color:rgb(34, 161, 34);"><PhoneOutline/>: (47)984975167 </span><br>
-          <span style="color:rgb(34, 161, 34);"><EmailOutline/>: ifCoders@gmail.com</span>
+      <button @click="toggleContato" class="contato">{{ mostrar_ct ? 'Voltar' : 'Contato' }}</button>
+      <div v-if="mostrar_ct" class="info-box">
+        <p>Entre em contato conosco! Estamos aqui para ajudar. Use o número abaixo ou nosso email de contato para falar conosco. Esperamos por sua mensagem!<br>
+          <span class="highlight"><PhoneOutline />: (47)984975167 </span><br>
+          <span class="highlight"><EmailOutline />: ifCoders@gmail.com</span>
         </p>
       </div>
     </div>
-    
-
   </div>
-
-
 </template>
 
 <style scoped>
-.perfil{
-
-  cursor: pointer;
-  background-color: transparent;
-  color: rgb(200, 221, 200);
-  border: 0;
-  margin-left: 20px;
-
-
-
-}
-.buttons{
-  display: flex;
-  justify-content: center;
-}
-
-.contato {
-  background-color: transparent;
-  color: rgb(200, 221, 200);
-  border: 0;
-}
-
-
-.sobre-nos {
-  background-color: transparent;
-  color: rgb(200, 221, 200);
-  border: 0;
-}
-
-
-.sobre {
-  position: absolute;
-  margin-left: 24px;
-  padding: 20px;
-  top: 50px;
-  width: 400Px;
-  border-bottom-right-radius: 5px;
-  height: 100vh;
-  color: rgb(73, 68, 68);
-  background-color: rgb(241, 235, 235);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation-name: ease;
-  animation-duration: 0.7s;
-  z-index: 3;
-  border-bottom-right-radius:10px ;
-  border-bottom-left-radius: 10px;
-  
-}
-
-
-.text-sobre {
-  animation-name: slide;
-  animation-duration: 3s;
-}
-
-@keyframes slide {
-  from {
-
-
-    opacity: 0;
-  }
-
-
-  to {
-
-
-    opacity: 1;
-  }
-
-
-}
-
-
-@keyframes ease {
-  from {
-
-
-    width: 0px;
-  }
-
-
-  to {
-
-
-    width: 400px;
-  }
-}
-
-
-.name-title {
-  color: rgb(34, 161, 34);
-  margin: 0px 5px 5px 10px;
-  max-width: 40%;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-.name-title:hover{
-    color: rgba(70, 161, 34, 0.493);
-
-}
-
 .header {
   display: flex;
   position: fixed;
   width: 100%;
   height: 50px;
-  border: 0;
-  background-color: rgb(44, 40, 40);
-  text-align: left;
+  background-color: #2A823D;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  color: white;
   font-family: 'Poppins', sans-serif;
-  color: rgb(200, 221, 200);
   font-weight: bold;
-  top: 0px;
   z-index: 10;
-  margin-left: -8px;
 }
 
-@media (max-width: 500px){
-  .sobre{
-    width: 300px;
-    margin-left: -42px;
+.name-title {
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.5s;
+}
+
+.name-title:hover {
+  color: rgba(70, 161, 34, 0.8);
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.perfil,.sobre-nos,.contato {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+.sobre-nos:hover,.contato:hover {
+  text-decoration: underline;
+}
+
+.info-box {
+  position: absolute;
+  margin-left: 24px;
+  padding: 20px;
+  top: 50px;
+  right: 0;
+  width: 400px;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: ease 0.7s;
+  z-index: 3;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.info-text {
+  animation: slide 3s;
+  opacity: 1;
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
   }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ease {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 400px;
+  }
+}
+
+.highlight {
+  color: #22a122;
 }
 </style>

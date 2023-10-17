@@ -44,12 +44,11 @@ const imoveisFiltrados = computed(() => {
 </script>
 
 <template>
-  <NavBar />
-  <div >
-
-    <div class="form-floating">
+  <div class="page">
+    <NavBar />
+    <div class="filter-form">
       <select class="form-select" v-model="filtroTipo">
-        <option value="0">Selecione o Tipo de imóvel</option>
+        <option value="0">Selecione o Tipo de Imóvel</option>
         <option value="Apartamento">Apartamento</option>
         <option value="Casa">Casa</option>
         <option value="Chacara">Chácara</option>
@@ -69,173 +68,165 @@ const imoveisFiltrados = computed(() => {
         <option value="FF">Forfra</option>
       </select>
 
-      <input type="number" class="valor-input"  v-model="filtroValor" placeholder="Valor desejado">
+      <input type="number" class="valor-input" v-model="filtroValor" placeholder="Valor Desejado">
     </div>
 
-    <div class="listagem-imoveis">
-      <div v-for="imovel in imoveisFiltrados" :key="imovel.id" class="card-casa">
-        <img :src="imovel.img" alt="capa" class="imovel-capa">
+    <div class="imoveis-list">
+      <div v-for="imovel in imoveisFiltrados" :key="imovel.id" class="imovel-card">
+        <img :src="imovel.img" alt="Imóvel" class="imovel-image">
         <hr>
-        <span><button class="b-alugar" @click="goAlugar(imovel)">Alugar</button></span>
-        <div class="sub-card">
+        <div class="imovel-details">
           <p class="imovel-valor">R${{ imovel.valor.toFixed(3) }}</p>
-          <strong><p class="imovel-local">{{ imovel.local }}</p></strong>
-          <p class="imovel-quartos"> {{ imovel.QtdQua }} Quartos</p>
-          <p class="imovel-quartos"> {{ imovel.QtdBanh }} Banheiros</p>
+          <p><strong class="imovel-local">{{ imovel.local }}</strong></p>
+          <p class="imovel-quartos">{{ imovel.QtdQua }} Quartos</p>
+          <p class="imovel-quartos">{{ imovel.QtdBanh }} Banheiros</p>
         </div>
+        <button class="b-alugar" @click="goAlugar(imovel)">Alugar</button>
       </div>
     </div>
 
-    <footer class="fixed-baseboard">
-      <p>
-        <span style="color: black;"><AlphaCCircleOutline/></span> 
-        IfCoders 
-        <p>
-          Desenvolvimento
-        </p>
-      </p>
+    <footer class="fixed-footer">
+      <div>
+        <span style="color: black;"><AlphaCCircleOutline /></span>
+        IfCoders
+      </div>
+      <p>Desenvolvimento</p>
     </footer>
   </div>
-</template> 
-
+</template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins%3Awght%40100%3B200%3B300%3B400&display=swap%27%29%3B');
-
-
-.sub-card{
+.page {
+  background-color: #f0f0f0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-flex-wrap: wrap;
+  align-items: center;
 }
-.form-floating{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
+
+.filter-form {
+  display: flex;
   justify-content: center;
-  height: 80px;
+  gap: 20px;
   margin: 60px 30px;
   text-align: center;
 }
+
+.form-select, .form-estado {
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid rgba(128, 128, 128, 0.295);
+  padding: 10px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  width: 200px;
+}
+
 .valor-input {
   text-align: center;
+  border-radius: 5px;
+  background-color: #fff;
   border: 1px solid rgba(128, 128, 128, 0.295);
-  border-radius: 5px;
-}
-
-.form-select {
-  border-radius: 5px;
-  background-color: transparent;
-  border-color:  rgba(128, 128, 128, 0.295);
-}
-
-.form-estado{
-  background-color: transparent;
-  border: 1px solid rgba(128, 128, 128, 0.295);
-  border-radius: 5px;
-}
-
-.b-filtrar {
-  background-color: rgb(32, 133, 32);
-  color: white;
+  padding: 10px;
   font-family: 'Poppins', sans-serif;
-  border-radius: 10px;
-  border: 0;
+  color: #333;
+  width: 150px;
 }
 
 
-.listagem-imoveis { 
+
+
+
+
+.imoveis-list {
   display: flex;
-  flex-wrap: wrap;  
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 20px;
   width: 100%;
-  margin: 0;
+  height: auto;
+  margin-bottom: 70px;
   justify-content: center;
 }
 
-
-.card-casa {
-  background-color: transparent;
+.imovel-card {
+  background-color: #fff;
   border: 1px solid rgba(128, 128, 128, 0.295);
   border-radius: 10px;
   width: 400px;
   height: 410px;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.imovel-capa {
-  position: sticky;
+.imovel-image {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   width: 100%;
+  max-height: 50%;
 }
 
-
-.imovel-local {
-  margin-top: -60px;
-  margin-bottom: 50px;
-  margin-left: 5px;
-  color: rgb(15, 9, 4);
+.imovel-details {
+  padding: 20px;
+  text-align: center;
   font-family: 'Poppins', sans-serif;
 }
-
-.imovel-quartos{
-    margin-top: -50px;
-  margin-bottom: 50px;
-  margin-left: 5px;
-  color: rgb(15, 9, 4);
-  font-family: 'Poppins', sans-serif;
-}
-
-img {
-  width: 300px;
-  height: 300px;
-}
-
-
-.b-alugar {
-  position: relative;
-  border: 0;
-  background-color: rgb(19, 88, 19);
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  border-radius: 7px;
-  height: 25px;
-  width: 95px;
-  left: 250px;
-  transition: .1s;
-}
-.b-alugar:hover{
-  background-color: rgb(12, 65, 12);
-  transform: scale(1.1);
- }
-
 
 .imovel-valor {
-    color: rgb(43, 73, 13);
-  margin-top: -30px;
-  margin-bottom: 60px;
-  margin-left: 7px;
-  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: #2A823D;
   font-weight: bold;
 }
 
+.imovel-local {
+  font-size: 18px;
+  font-weight: bold;
+}
 
-.fixed-baseboard {
-  position: relative;
+.imovel-quartos {
+  font-size: 16px;
+  color: #333;
+}
+
+.b-alugar {
+  background-color: #2A823D;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  border: 0;
+  border-radius: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.b-alugar:hover {
+  background-color: #2e7a3f;
+}
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
   height: 70px;
-  right: 1px;
-  color: rgb(32, 133, 32);
-  bottom: 0px;
+  background-color: #fff;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-top: 1px solid rgba(128, 128, 128, 0.295);
 }
-@media (max-width: 500px){
-  .card-casa{
-    margin: 0;
-  }
-  .form-floating{
-    grid-template-columns: 1fr 1fr;
-  }
 
+.fixed-footer span {
+  font-size: 24px;
+  color: #2A823D;
+  margin-right: 5px;
+}
+
+.fixed-footer p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
 }
 </style>

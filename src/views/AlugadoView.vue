@@ -44,125 +44,81 @@ function confirmaVisita() {
     }
 }
 
-
-
-
-
-
-
-
 </script>
-
 <template>
     <NavBar />
-
-
+  
     <div class="background-card">
-
-
-
-        <div class="visita" v-if="visita">
-            <h2>Agendar visita</h2>
-            <input type="text" required placeholder="Nome" name="Nome" id="Nome" v-model="nome">
-            <input type="email" required placeholder="Email" name="email" id="email" v-model="email">
-            <input type="datetime-local" required name="" id="" v-model="dataHora">
-            <button type="submit" @click="confirmaVisita">Agendar</button>
-            <form action=" "></form>
-        </div>
-        <div class="ifo-imovel"  v-if="visita">
-            <h2>Informações do Imovel escolhido</h2>
-            <h3>Valor do Imovel: R${{ imovel.valor.toFixed(3) }}</h3>
-            <h3>Localidade do imovel:{{ imovel.local }}.</h3>
-            <h3>Tipo de Imovel:{{ imovel.tipo }}.</h3>
-            <h3>Quantia de banheiros: {{ imovel.QtdBanh }}.</h3>
-            <h3>Quantia de quartos: {{ imovel.QtdQua }}.</h3>
-        </div>
-
-        <div class="agendado" v-if="visitaAgendada">
-
-
-
-            <h1>Visita Agendada</h1>
-            <h3>{{ nome }}</h3>
-
-            <h3>Acesse seu email para mais informações</h3>
-
-            <CheckboxMarkedCircleOutline />
-        </div>
-
-
+      <div class="visita" v-if="visita">
+        <h2>Agendar Visita</h2>
+        <input type="text" required placeholder="Nome" name="Nome" id="Nome" v-model="nome" />
+        <input type="email" required placeholder="Email" name="email" id="email" v-model="email" />
+        <input type="datetime-local" required v-model="dataHora" />
+        <button type="submit" @click="confirmaVisita">Agendar</button>
+        <form action=""></form>
+      </div>
+      <div class="ifo-imovel" v-if="visita">
+        <h2>Informações do Imóvel Escolhido</h2>
+        <h3>Valor do Imóvel: R${{ imovel.valor.toFixed(3) }}</h3>
+        <h3>Localidade do Imóvel: {{ imovel.local }}.</h3>
+        <h3>Tipo de Imóvel: {{ imovel.tipo }}.</h3>
+        <h3>Quantidade de Banheiros: {{ imovel.QtdBanh }}.</h3>
+        <h3>Quantidade de Quartos: {{ imovel.QtdQua }}.</h3>
+      </div>
+      <div class="agendado" v-if="visitaAgendada">
+        <h1>Visita Agendada</h1>
+        <h3>{{ nome }}</h3>
+        <h3>Acesse seu email para mais informações</h3>
+        <CheckboxMarkedCircleOutline />
+      </div>
     </div>
-</template>
-<style scoped>
-    .ifo-imovel{
-    background-color: rgba(107, 105, 103, 0.404);
-    box-shadow: 5px 4px rgba(67, 68, 67, 0.623);
-    padding: 2%;
-    border-radius: 5px;
-    font-family: Poppins;
+  </template>
+  
+  <style scoped>
+    .background-card {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5vh;
+      min-height: 100vh;
+      background-color: #f0f0f0; 
+      padding: 20px; 
     }
-    .agendado {
-    width: 400px;
-    height: 400px;
-    background-color: rgb(44, 40, 40);
-    color: rgba(84, 129, 84, 0.623);
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 5px 4px rgba(84, 129, 84, 0.623);
-    border-radius: 5px;
-    font-family: Poppins;
-}
-
-.visita {
-    width: 400px;
-    height: 700px;
-    background-color: rgb(44, 40, 40);
-    color: rgba(84, 129, 84, 0.623);
-    text-align: center;
-    justify-content: center;
-    gap: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    box-shadow: 5px 4px rgba(84, 129, 84, 0.623);
-    border-radius: 5px;
-    font-family: Poppins;
-
-
-}
-
-.visita input {
-    width: 200px;
-    height: 40px;
-    margin: 1rem;
-    border: 0;
-    font-size: medium;
-    border-radius: 5px;
-}
-
-.visita button {
-    width: 200px;
-    height: 40px;
-    margin: 1rem;
-    border: 0;
-    cursor: pointer;
-    transition: 0.5s;
-    border-radius: 5px;
-}
-
-.visita button:hover {
-    background-color: rgba(179, 187, 180, 0.575);
-    box-shadow: 0px 2px rgba(34, 161, 34, 0.623)
-}
-
-.background-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10vh;
-    height: 100vh;
-    width: 100%;
-
-}
-</style>
+  
+    .visita,.ifo-imovel,.agendado {
+      background-color: #fff; 
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+      padding: 20px; 
+      border-radius: 10px; 
+      font-family: 'Poppins', sans-serif;
+      max-width: 500px; 
+      width: 100%; 
+    }
+  
+    .visita input,
+    .visita button {
+      width: 100%;
+      height: 40px;
+      margin: 10px 0;
+      padding: 10px; 
+      border: 1px solid #ccc; 
+      border-radius: 5px;
+    }
+  
+    .visita button {
+      background-color: #52bd37;    
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.5s;
+    }
+  
+    .visita button:hover {
+      background-color: #449231; 
+    }
+  
+    .ifo-imovel {
+      background-color: #f0f0f0; 
+    }
+  </style>
+  
