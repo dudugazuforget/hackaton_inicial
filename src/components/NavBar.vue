@@ -41,7 +41,7 @@ function Voltar() {
 
 <template>
   <div class="header">
-    <h1 @click="goHome" class="name-title">IfCoders</h1>
+    <button @click="goHome" class="name-title">IfCoders</button>
     <div class="buttons">
       <button class="perfil" @click="goPerfil">Perfil</button>
       <button @click="toggleSobreNos" class="sobre-nos">{{ mostrar_sb ? 'Voltar' : 'Sobre nós' }}</button>
@@ -81,6 +81,10 @@ function Voltar() {
   font-size: 24px;
   cursor: pointer;
   transition: color 0.5s;
+  background-color: transparent;
+  border: 0;
+  color: white;
+
 }
 
 .name-title:hover {

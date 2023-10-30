@@ -147,6 +147,8 @@ function goAlugado(imovel){
   }
   
   @media (max-width: 768px) {
+
+    
   .content {
     flex-direction: column;
     padding: 10px;
