@@ -116,10 +116,19 @@ function goHome(){
   cursor: pointer;
   margin-top: 20px;
 }
-
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .login-form, .reset-password-form {
-    width: 95%;
+    width: 100%;
+    max-width: none;
+  }
+  .input-field {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .login-button, .reset-password-button {
+    height: 40px;
+    font-size: 16px;
   }
 }
 </style>

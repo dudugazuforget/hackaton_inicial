@@ -229,4 +229,34 @@ const imoveisFiltrados = computed(() => {
   color: #333;
   margin: 0;
 }
+
+
+@media (max-width: 768px) {
+  .filter-form {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 50px 10px ;
+  }
+
+  .form-select, .form-estado, .valor-input {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .imovel-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .fixed-footer {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .fixed-footer span {
+    margin: 0;
+  }
+} 
 </style>

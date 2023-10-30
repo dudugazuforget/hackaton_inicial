@@ -111,7 +111,39 @@ textarea {
 }
 
 .save-button:hover {
-  background-color: #0056b3;
+  background-color: #2f804a;
 }
 
+@media (max-width: 768px) {
+  .sub-container {
+    width: 100%;
+  }
+
+  .input-group {
+    margin-bottom: 10px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input[type="file"] {
+    padding: 8px;
+  }
+
+
+  h3 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+
+  .save-button {
+    height: 40px;
+    font-size: 16px;
+  }
+}
 </style>

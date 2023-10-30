@@ -120,5 +120,15 @@ function confirmaVisita() {
     .ifo-imovel {
       background-color: #f0f0f0; 
     }
+
+    @media (max-width: 768px) {
+  .background-card {
+    padding: 10px;
+  }
+
+  .visita, .ifo-imovel, .agendado {
+    max-width: 100%;
+  }
+}
   </style>
   

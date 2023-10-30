@@ -2,6 +2,7 @@
 import {  computed } from 'vue';
 import { getImovelById } from '../_data/imoveis';
 import NavBar from '../components/NavBar.vue';
+import { useRouter } from 'vue-router';
 
 
 const props = defineProps(['id'])
@@ -10,7 +11,6 @@ const imovel = computed(() => getImovelById(props.id))
 
 
 
-import { useRouter } from 'vue-router';
 const router = useRouter()
 
 function goAlugado(imovel){
@@ -145,5 +145,33 @@ function goAlugado(imovel){
   .btn-alugar:hover {
     background-color: #2e7a3f;
   }
+  
+  @media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .image-container {
+    max-width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  .info-container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .info-imovel p {
+    font-size: 16px;
+  }
+
+  .btn-alugar {
+    font-size: 18px;
+  }
+}
   </style>
   
